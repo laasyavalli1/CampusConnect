@@ -1,29 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map - NIT Trichy</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect - NIT Trichy</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main class="hero-section">
-        <video autoplay loop muted playsinline class="background-video">
-            <source src="background-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+  <!-- Navigation Bar -->
+  <header>
+    <a href="#" class="logo">CampusConnect</a>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <div class="hero-content">
-            <h1>Interactive Map of NIT Trichy</h1>
-            <p>Find departments, hostels, and key locations with ease.</p>
-            <div class="button-group">
-                <a href="#" class="cta-button">Explore The Map</a>
-                <a href="#" class="cta-button secondary">Skillsharing Platform</a>
-            </div>
-        </div>
-    </main>
+  <!-- Hero Section -->
+  <main class="hero-section">
+    <video autoplay loop muted playsinline class="background-video">
+      <source src="background-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-content">
+      <h1>Interactive Map of NIT Trichy</h1>
+      <p>Find departments, hostels, and key locations with ease.</p>
+      <div class="button-group">
+        <a href="#" class="cta-button">Explore The Map</a>
+        <a href="#" class="cta-button secondary">Skillsharing Platform</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About CampusConnect</h2>
+    <p>CampusConnect is a platform that combines skill-sharing and smart navigation for NIT Trichy students.</p>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section alt">
+    <h2>Features</h2>
+    <ul>
+      <li>📍 Interactive Campus Map</li>
+      <li>🤝 Skill-Sharing Communities</li>
+      <li>🔍 Search and Explore Departments & Hostels</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: campusconnect@nitt.edu</p>
+  </section>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href"))
+                .scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  </script>
 </body>
 </html>
+
