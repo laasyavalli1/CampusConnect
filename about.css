@@ -1,0 +1,28 @@
+/* about.css – styles only for About page */
+.about-page .section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-page .section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+}
+
+.about-page .section p,
+.about-page .section ul {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.about-page .section ul {
+  padding-left: 20px;
+}
+
+.about-page .section ul li {
+  margin-bottom: 10px;
+}
