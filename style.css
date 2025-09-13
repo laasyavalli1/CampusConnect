@@ -158,37 +158,7 @@ nav ul li a:hover::after {
 .section ul li {
   margin: 10px 0;
 }
-/* ------------------- */
-/* About Page Styles   */
-/* ------------------- */
-.about-page {
-  padding-top: 80px; /* push content below fixed navbar */
-}
 
-.about-page .section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: justify;
-}
-
-.about-page .section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #fff;
-}
-
-.about-page .section p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-/* Active navbar link */
-nav ul li a.active {
-  color: #005A9C;
-}
 
 
 
