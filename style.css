@@ -7,14 +7,16 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #111;
-  color: white;
   line-height: 1.6;
+  color: white;
+  background: linear-gradient(-45deg, #000000, #001f3f, #000000, #001f3f);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
 
 /* Navbar */
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -22,15 +24,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+  z-index: 10;
 }
 
 .logo {
   font-size: 1.5rem;
-  font-weight: 700;
   color: white;
   text-decoration: none;
+  font-weight: 700;
 }
 
 nav ul {
@@ -43,123 +44,103 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  position: relative;
+  transition: color 0.3s ease;
 }
 
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0;
-  height: 2px;
-  background: #005A9C;
-  transition: width 0.3s ease;
+nav ul li a:hover,
+nav ul li a.active {
+  color: #00bfff;
 }
 
-nav ul li a:hover::after {
-  width: 100%;
-}
-
-/* Hero Section */
+/* Hero section (homepage only) */
 .hero-section {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  color: white;
-  overflow: hidden;
-}
-
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding-left: 10%;
 }
 
 .hero-content {
-  z-index: 1;
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
 }
 
 .button-group {
   display: flex;
-  justify-content: center;
   gap: 20px;
 }
 
 .cta-button {
-  padding: 12px 28px;
-  border-radius: 5px;
+  display: inline-block;
+  padding: 14px 32px;
   text-decoration: none;
+  border-radius: 5px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
   border: 2px solid transparent;
 }
 
 .cta-button:first-child {
-  background: #005A9C;
+  background-color: #005A9C;
   color: white;
 }
 
 .cta-button:first-child:hover {
-  background: #004170;
-  transform: scale(1.05);
+  background-color: #004170;
+  transform: translateY(-3px);
 }
 
 .cta-button.secondary {
-  border: 2px solid white;
+  background-color: transparent;
+  border-color: white;
   color: white;
-  background: transparent;
 }
 
 .cta-button.secondary:hover {
-  background: white;
+  background-color: white;
   color: #004170;
-  transform: scale(1.05);
+  transform: translateY(-3px);
 }
 
-/* Sections */
-.section {
-  padding: 100px 20px;
-  text-align: center;
+/* Page sections (About & Features) */
+.page-section {
+  min-height: 100vh;
+  padding: 120px 10%;
 }
 
-.section.alt {
-  background: #222;
+.page-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.section ul {
-  list-style: none;
+.page-section p, .page-section ul {
   font-size: 1.2rem;
+  max-width: 800px;
 }
 
-.section ul li {
-  margin: 10px 0;
+.page-section ul {
+  margin-top: 1rem;
+  list-style: disc inside;
 }
 
-
-
-
-
+/* Background animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
