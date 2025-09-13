@@ -158,3 +158,30 @@ nav ul li a:hover::after {
 .section ul li {
   margin: 10px 0;
 }
+
+/* About Page Specific Styles */
+.about-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px; /* slightly smaller than normal sections */
+  text-align: justify;
+}
+
+.about-section h2 {
+  text-align: center;
+  color: #fff; /* keep headings white */
+}
+
+.about-section p,
+.about-section ul {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.about-section ul {
+  padding-left: 20px;
+}
+
+.about-section ul li {
+  margin-bottom: 10px;
+}
