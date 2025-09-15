@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skill Sharing Login</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Sharing Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">CampusConnect</a>
-  </header>
+    <header>
+        <a href="index.html" class="logo">CampusConnect</a>
+    </header>
 
-  <main class="login-section">
-    <div class="login-card">
-      <h1>Login to Skill Sharing</h1>
-      <p>Use your NITT Webmail credentials</p>
-      <form action="skillsharing.html" method="GET">
-        <label for="email">NITT Webmail:</label>
-        <input type="email" id="email" name="email" placeholder="example@nitt.edu" required>
+    <main class="login-section">
+        <div class="login-card">
+            <h1>Login to Skill Sharing</h1>
+            <p>Use your NITT Webmail credentials</p>
+            <form action="skillsharing.html" method="GET">
+                <label for="email">NITT Webmail:</label>
+                <input type="email" id="email" name="email" placeholder="example@nitt.edu" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
 
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  </main>
-  <script src="app.js"></script>
+                <button type="submit">Login</button>
+            </form>
+            
+            <p class="create-account-link">
+                Don't have an account? <a href="register.html">Create an Account</a>
+            </p>
+        </div>
+    </main>
 </body>
 </html>
