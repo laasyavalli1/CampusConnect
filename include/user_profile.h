@@ -2,26 +2,28 @@
 #define USER_PROFILE_H
 
 #include <string>
-#include <unordered_map>
-using namespace std;
+#include <vector>
 
-// Structure to hold user information
-struct UserProfile {
-    string username;
-    string branch;
-    string skills;
-};
-
-// User Manager for adding and managing profiles
-class UserManager {
+class User {
 private:
-    unordered_map<string, UserProfile> users; // key = username
-
+    std::string name;
+    std::string email; // unique identifier
+    std::vector<std::string> skills;
 public:
-    void addUser(string username, string branch, string skills);
-    void displayUsers();
-    bool userExists(string username);
+    User() = default;
+    User(const std::string& name, const std::string& email);
+
+    // getters
+    std::string getName() const;
+    std::string getEmail() const;
+    const std::vector<std::string>& getSkills() const;
+
+    // actions
+    void addSkill(const std::string& skill);
+    bool hasSkill(const std::string& skill) const;
+
+    // display
+    void displayProfile() const;
 };
 
-#endif
-
+#endif // USER_PROFILE_H
