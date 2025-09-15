@@ -2,19 +2,22 @@
 #define MESSAGING_H
 
 #include <string>
-#include <queue>
-#include <unordered_map>
 #include <vector>
-using namespace std;
 
-class MessagingSystem {
-private:
-    unordered_map<string, queue<string>> inbox; // username → messages
-
-public:
-    void sendMessage(string sender, string receiver, string message);
-    void readMessages(string username);
+struct Message {
+    std::string senderEmail;
+    std::string receiverEmail; // single receiver; group messaging is separate concept
+    std::string content;
 };
 
-#endif
+class Messaging {
+private:
+    std::vector<Message> messages;
+public:
+    void sendMessage(const Message& m);
+    std::vector<Message> getAllMessages() const;
+    std::vector<Message> getMessagesBetween(const std::string& a, const std::string& b) const;
+    void showAllMessages() const;
+};
 
+#endif // MESSAGING_H
