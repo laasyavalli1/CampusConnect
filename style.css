@@ -1,4 +1,3 @@
-
 /* Reset */
 * {
   margin: 0;
@@ -8,16 +7,14 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
+  background-color: #111;
   color: white;
-  background: linear-gradient(-45deg, #000000, #001f3f, #000000, #001f3f);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  line-height: 1.6;
 }
 
 /* Navbar */
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -25,14 +22,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
 }
 
 .logo {
   font-size: 1.5rem;
+  font-weight: 700;
   color: white;
   text-decoration: none;
-  font-weight: 700;
 }
 
 nav ul {
@@ -45,103 +43,145 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  position: relative;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  color: #00bfff;
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #005A9C;
+  transition: width 0.3s ease;
 }
 
-/* Hero section (homepage only) */
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
 .hero-section {
   height: 100vh;
-  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: left;
-  padding-left: 10%;
+  text-align: center;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .hero-content {
-  max-width: 600px;
+  z-index: 1;
+  max-width: 800px;
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 .hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2.5rem;
-  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 .button-group {
   display: flex;
+  justify-content: center;
   gap: 20px;
 }
 
 .cta-button {
-  display: inline-block;
-  padding: 14px 32px;
-  text-decoration: none;
+  padding: 12px 28px;
   border-radius: 5px;
+  text-decoration: none;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   transition: all 0.3s ease;
   border: 2px solid transparent;
 }
 
 .cta-button:first-child {
-  background-color: #005A9C;
+  background: #005A9C;
   color: white;
 }
 
 .cta-button:first-child:hover {
-  background-color: #004170;
-  transform: translateY(-3px);
+  background: #004170;
+  transform: scale(1.05);
 }
 
 .cta-button.secondary {
-  background-color: transparent;
-  border-color: white;
+  border: 2px solid white;
   color: white;
+  background: transparent;
 }
 
 .cta-button.secondary:hover {
-  background-color: white;
+  background: white;
   color: #004170;
-  transform: translateY(-3px);
+  transform: scale(1.05);
 }
 
-/* Page sections (About & Features) */
-.page-section {
-  min-height: 100vh;
-  padding: 120px 10%;
+/* Sections */
+.section {
+  padding: 100px 20px;
+  text-align: center;
 }
 
-.page-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.section.alt {
+  background: #222;
 }
 
-.page-section p, .page-section ul {
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.section ul {
+  list-style: none;
   font-size: 1.2rem;
-  max-width: 800px;
 }
 
-.page-section ul {
-  margin-top: 1rem;
-  list-style: disc inside;
+.section ul li {
+  margin: 10px 0;
 }
 
-/* Background animation */
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}. extend this so that Skill sharing .ccss part is also there 
+/* About Page Specific Styles */
+.about-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px; /* slightly smaller than normal sections */
+  text-align: justify;
+}
+
+.about-section h2 {
+  text-align: center;
+  color: #fff; /* keep headings white */
+}
+
+.about-section p,
+.about-section ul {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.about-section ul {
+  padding-left: 20px;
+}
+
+.about-section ul li {
+  margin-bottom: 10px;
+}
