@@ -1,3 +1,4 @@
+
 /* Reset */
 * {
   margin: 0;
@@ -5,143 +6,142 @@
   box-sizing: border-box;
 }
 
-/* General */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #111;
-  color: white;
   line-height: 1.6;
+  color: white;
+  background: linear-gradient(-45deg, #000000, #001f3f, #000000, #001f3f);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
 
+/* Navbar */
 header {
-  background: #222;
-  padding: 20px;
-  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
 }
 
-header h1 {
-  font-size: 2rem;
-  color: #f4f4f4;
+.logo {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-nav ul li {
-  margin: 0 15px;
+  list-style: none;
+  gap: 40px;
 }
 
 nav ul li a {
+  color: white;
   text-decoration: none;
-  color: #f4f4f4;
-  transition: color 0.3s;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-  color: #ff9800;
+nav ul li a:hover,
+nav ul li a.active {
+  color: #00bfff;
 }
 
-/* Sections */
-section {
-  padding: 40px;
-  text-align: center;
-}
-
-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 15px;
-  background: #ff9800;
-  color: #111;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.btn:hover {
-  background: #e68900;
-  transform: scale(1.05);
-}
-
-/* Login Page */
-.login-container {
-  max-width: 400px;
-  margin: 100px auto;
-  padding: 30px;
-  background: #1e1e1e;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-}
-
-.login-container h2 {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-
-.login-container input {
+/* Hero section (homepage only) */
+.hero-section {
+  height: 100vh;
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-}
-
-.login-container button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  background: #ff9800;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.login-container button:hover {
-  background: #e68900;
-  transform: scale(1.03);
-}
-
-/* Skill Sharing Page */
-.skill-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 30px;
-  background: #1e1e1e;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
   text-align: left;
+  padding-left: 10%;
 }
 
-.skill-container h2 {
-  margin-bottom: 20px;
-  font-size: 1.6rem;
-  color: #ff9800;
+.hero-content {
+  max-width: 600px;
 }
 
-.skill-container p {
-  margin-bottom: 15px;
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-.skill-container ul {
-  margin: 10px 0;
-  padding-left: 20px;
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
 }
 
-.skill-container ul li {
-  margin: 8px 0;
+.button-group {
+  display: flex;
+  gap: 20px;
 }
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 32px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.cta-button:first-child {
+  background-color: #005A9C;
+  color: white;
+}
+
+.cta-button:first-child:hover {
+  background-color: #004170;
+  transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}
+
+.cta-button.secondary:hover {
+  background-color: white;
+  color: #004170;
+  transform: translateY(-3px);
+}
+
+/* Page sections (About & Features) */
+.page-section {
+  min-height: 100vh;
+  padding: 120px 10%;
+}
+
+.page-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.page-section p, .page-section ul {
+  font-size: 1.2rem;
+  max-width: 800px;
+}
+
+.page-section ul {
+  margin-top: 1rem;
+  list-style: disc inside;
+}
+
+/* Background animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}. extend this so that Skill sharing .ccss part is also there 
