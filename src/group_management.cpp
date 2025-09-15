@@ -1,36 +1,27 @@
 #include "group_management.h"
 #include <iostream>
-using namespace std;
+#include <algorithm>
 
-// Create a new group
-void GroupManager::createGroup(string groupName) {
-    if (groups.find(groupName) != groups.end()) {
-        cout << "Group already exists!\n";
-        return;
-    }
-    groups[groupName] = {};
-    cout << "Group '" << groupName << "' created successfully.\n";
+Group::Group(const std::string& n) : name(n) {}
+
+std::string Group::getName() const { return name; }
+
+void Group::addMember(const std::string& userEmail) {
+    if (std::find(memberEmails.begin(), memberEmails.end(), userEmail) == memberEmails.end())
+        memberEmails.push_back(userEmail);
 }
 
-// Add user to a group
-void GroupManager::joinGroup(string groupName, string username) {
-    if (groups.find(groupName) == groups.end()) {
-        cout << "Group does not exist!\n";
-        return;
-    }
-    groups[groupName].push_back(username);
-    cout << username << " joined group " << groupName << ".\n";
+void Group::removeMember(const std::string& userEmail) {
+    auto it = std::find(memberEmails.begin(), memberEmails.end(), userEmail);
+    if (it != memberEmails.end()) memberEmails.erase(it);
 }
 
-// Display all groups and members
-void GroupManager::displayGroups() {
-    cout << "\n--- Groups ---\n";
-    for (auto &entry : groups) {
-        cout << "Group: " << entry.first << "\nMembers: ";
-        for (auto &member : entry.second) {
-            cout << member << " ";
-        }
-        cout << endl;
+const std::vector<std::string>& Group::getMembers() const { return memberEmails; }
+
+void Group::displayMembers() const {
+    std::cout << "Group: " << name << "\nMembers:\n";
+    if (memberEmails.empty()) std::cout << " (no members)\n";
+    else {
+        for (const auto &e : memberEmails) std::cout << " - " << e << "\n";
     }
 }
-
