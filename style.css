@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth; /* smooth scrolling */
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #111;
@@ -24,6 +28,11 @@ header {
   align-items: center;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
+  transition: 0.3s background;
+}
+
+header.scrolled {
+  background: rgba(0, 0, 0, 0.9); /* darker when scrolled */
 }
 
 .logo {
@@ -86,6 +95,8 @@ nav ul li a:hover::after {
 .hero-content {
   z-index: 1;
   max-width: 800px;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
 }
 
 .hero-content h1 {
@@ -111,6 +122,8 @@ nav ul li a:hover::after {
   font-weight: 600;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  display: inline-block;
+  position: relative;
 }
 
 .cta-button:first-child {
@@ -133,6 +146,13 @@ nav ul li a:hover::after {
   background: white;
   color: #004170;
   transform: scale(1.05);
+}
+
+/* Fade-in animation for hero content */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 /* Sections */
@@ -159,29 +179,4 @@ nav ul li a:hover::after {
   margin: 10px 0;
 }
 
-/* About Page Specific Styles */
-.about-section {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px; /* slightly smaller than normal sections */
-  text-align: justify;
-}
-
-.about-section h2 {
-  text-align: center;
-  color: #fff; /* keep headings white */
-}
-
-.about-section p,
-.about-section ul {
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-
-.about-section ul {
-  padding-left: 20px;
-}
-
-.about-section ul li {
-  margin-bottom: 10px;
-}
+/* Scroll effects for header */
