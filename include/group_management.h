@@ -1,20 +1,23 @@
 #ifndef GROUP_MANAGEMENT_H
 #define GROUP_MANAGEMENT_H
 
+#include "user_profile.h"
 #include <string>
-#include <unordered_map>
 #include <vector>
-using namespace std;
 
-class GroupManager {
+class Group {
 private:
-    unordered_map<string, vector<string>> groups; // group name → list of usernames
-
+    std::string name;
+    std::vector<std::string> memberEmails; // store emails to avoid copying users
 public:
-    void createGroup(string groupName);
-    void joinGroup(string groupName, string username);
-    void displayGroups();
+    Group() = default;
+    explicit Group(const std::string& name);
+
+    std::string getName() const;
+    void addMember(const std::string& userEmail);
+    void removeMember(const std::string& userEmail);
+    const std::vector<std::string>& getMembers() const;
+    void displayMembers() const; // prints emails (UI later can resolve to names)
 };
 
-#endif
-
+#endif // GROUP_MANAGEMENT_H
