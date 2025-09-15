@@ -392,3 +392,13 @@ footer {
     padding: 80px 20px;
   }
 }
+.create-account-link a {
+    color: #4da6ff; /* Or any color you prefer, like a bright blue */
+    text-decoration: none; /* Removes the underline from the link */
+    font-weight: 600; /* Makes the text bold */
+    transition: color 0.3s ease; /* Adds a smooth color transition on hover */
+}
+
+.create-account-link a:hover {
+    color: #fff; /* Changes the color to white on hover */
+}
