@@ -1,23 +1,28 @@
 #include "messaging.h"
 #include <iostream>
-using namespace std;
 
-// Send a message from sender to receiver
-void MessagingSystem::sendMessage(string sender, string receiver, string message) {
-    inbox[receiver].push("From " + sender + ": " + message);
-    cout << "Message sent to " << receiver << " successfully.\n";
+void Messaging::sendMessage(const Message& m) {
+    messages.push_back(m);
 }
 
-// Read all messages for a user
-void MessagingSystem::readMessages(string username) {
-    cout << "\n--- Messages for " << username << " ---\n";
-    if (inbox.find(username) == inbox.end() || inbox[username].empty()) {
-        cout << "No messages.\n";
-        return;
-    }
-    while (!inbox[username].empty()) {
-        cout << inbox[username].front() << endl;
-        inbox[username].pop();
-    }
+std::vector<Message> Messaging::getAllMessages() const {
+    return messages;
 }
 
+std::vector<Message> Messaging::getMessagesBetween(const std::string& a, const std::string& b) const {
+    std::vector<Message> result;
+    for (const auto &m : messages) {
+        if ((m.senderEmail == a && m.receiverEmail == b) ||
+            (m.senderEmail == b && m.receiverEmail == a))
+            result.push_back(m);
+    }
+    return result;
+}
+
+void Messaging::showAllMessages() const {
+    std::cout << "\n=== Messages ===\n";
+    if (messages.empty()) std::cout << "(no messages)\n";
+    for (const auto &m : messages) {
+        std::cout << m.senderEmail << " -> " << m.receiverEmail << ": " << m.content << "\n";
+    }
+}
