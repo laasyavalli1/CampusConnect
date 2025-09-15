@@ -1,31 +1,28 @@
 #include "user_profile.h"
 #include <iostream>
-using namespace std;
+#include <algorithm>
 
-// Add a new user profile
-void UserManager::addUser(string username, string branch, string skills) {
-    if (users.find(username) != users.end()) {
-        cout << "User already exists!\n";
-        return;
+User::User(const std::string& n, const std::string& e) : name(n), email(e) {}
+
+std::string User::getName() const { return name; }
+std::string User::getEmail() const { return email; }
+const std::vector<std::string>& User::getSkills() const { return skills; }
+
+void User::addSkill(const std::string& skill) {
+    // avoid duplicates (case-insensitive optional; here exact match)
+    if (std::find(skills.begin(), skills.end(), skill) == skills.end())
+        skills.push_back(skill);
+}
+
+bool User::hasSkill(const std::string& skill) const {
+    return std::find(skills.begin(), skills.end(), skill) != skills.end();
+}
+
+void User::displayProfile() const {
+    std::cout << "Name: " << name << "\nEmail: " << email << "\nSkills:";
+    if (skills.empty()) std::cout << " None";
+    else {
+        for (const auto &s : skills) std::cout << " " << s;
     }
-
-    UserProfile newUser = {username, branch, skills};
-    users[username] = newUser;
-    cout << "User " << username << " added successfully.\n";
+    std::cout << "\n";
 }
-
-// Display all users
-void UserManager::displayUsers() {
-    cout << "\n--- Registered Users ---\n";
-    for (auto &entry : users) {
-        cout << "Username: " << entry.second.username
-             << " | Branch: " << entry.second.branch
-             << " | Skills: " << entry.second.skills << endl;
-    }
-}
-
-// Check if user exists
-bool UserManager::userExists(string username) {
-    return users.find(username) != users.end();
-}
-
