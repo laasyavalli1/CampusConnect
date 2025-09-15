@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Skill Sharing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">CampusConnect</a>
+  </header>
+
+  <main class="login-section">
+    <h1>Login to Skill Sharing</h1>
+    <form onsubmit="return handleLogin(event)">
+      <label for="email">NITT Webmail ID:</label><br>
+      <input type="email" id="email" name="email" placeholder="example@nitt.edu" required><br><br>
+
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <button type="submit">Login</button>
+    </form>
+    <p id="error-message" style="color: red; display: none;">Invalid login. Try again.</p>
+  </main>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Simple dummy check (replace with actual backend validation later)
+      if (email.endsWith("@nitt.edu") && password.length > 3) {
+        window.location.href = "skillsharing.html";
+      } else {
+        document.getElementById("error-message").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
