@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Map - NIT Trichy</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map - NIT Trichy</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">CampusConnect</a>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html">Features</a></li>
-  
-      </ul>
-    </nav>
-  </header>
+  <header>
+    <a href="index.html" class="logo">CampusConnect</a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <main class="hero-section">
-    <div class="hero-content">
-      <h1>Interactive Map of NIT Trichy</h1>
-      <p>Find departments, hostels, and key locations with ease.</p>
-      <div class="button-group">
-       <a href="#" class="btn-primary" id="explore-map-btn">Explore The Map</a>
-        <div id="navigation-options" style="display: none; margin-top: 30px;">
-    <a href="#" id="inside-campus-btn" class="btn-primary map-option-btn">
-        Inside Campus Navigation
-    </a>
-
-    <a href="#" id="outside-campus-btn" class="btn-secondary map-option-btn" style="margin-left: 15px;">
-        Outside Campus Navigation
-    </a>
-</div>
-        <a href="login.html" class="cta-button secondary">Skill Sharing Platform</a>
+  <main class="hero-section">
+    <div class="hero-content">
+      <h1>Interactive Map of NIT Trichy</h1>
+      <p>Find departments, hostels, and key locations with ease.</p>
+      
+            <div class="button-group">
+       <a href="#" class="btn-primary" id="explore-map-btn">Explore The Map</a>
+        <a href="login.html" class="cta-button secondary">Skill Sharing Platform</a>
+      </div>
+      
+      <div id="navigation-options" style="display: none; margin-top: 20px; text-align: center;">
+        <a href="#" id="inside-campus-btn" class="btn-primary map-option-btn">
+            Inside Campus Navigation
+        </a>
+        <a href="#" id="outside-campus-btn" class="btn-secondary map-option-btn" style="margin-left: 15px;">
+            Outside Campus Navigation
+        </a>
       </div>
-    </div>
-  </main>
-  <script src="script.js"></script>
+      
+    </div>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
