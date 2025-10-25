@@ -1,27 +1,21 @@
+#pragma once
 #ifndef CAMPUS_CONNECT_H
 #define CAMPUS_CONNECT_H
 
+#include "user_profile.h"
 #include <string>
 #include <vector>
 #include <unordered_map>
-
-struct User {
-    std::string name;
-    std::string email;
-    std::string skill;
-
-    void displayProfile() const;
-};
+#include <memory>
 
 class CampusConnect {
+private:
+    std::unordered_map<std::string, std::unique_ptr<User>> users_;
 public:
     bool createUser(const std::string &name, const std::string &email);
     bool addSkill(const std::string &email, const std::string &skill);
     std::vector<std::string> listUsers() const;
     User* getUser(const std::string &email);
-
-private:
-    std::unordered_map<std::string, User> users;
 };
 
-#endif
+#endif // CAMPUS_CONNECT_H
