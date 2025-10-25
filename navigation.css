@@ -1,0 +1,106 @@
+/* Inherit Global Styles for consistency */
+body {
+    /* Use the same dark background and font from your main style.css */
+    font-family: 'Poppins', sans-serif;
+    background-color: #111;
+    color: white;
+    line-height: 1.6;
+    /* Center the page content vertically and horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Make sure it takes up the full viewport height */
+    text-align: center;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+/* Page Title Style */
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Subtitle/Paragraph Style */
+header p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+/* Navigation Buttons Container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between the two main buttons */
+    margin-bottom: 40px;
+}
+
+/* Button Base Style */
+.btn {
+    padding: 15px 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block; /* Essential for padding/sizing */
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid transparent; /* Prepare for secondary style */
+}
+
+/* Primary Button Style (Similar to 'Explore The Map' on homepage) */
+.btn:not(.back) {
+    background: #005A9C; /* Your primary blue color */
+    color: white;
+}
+
+.btn:not(.back):hover {
+    background: #004170;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 90, 156, 0.4);
+}
+
+/* Back to Home Link/Button */
+.back-home {
+    margin-top: 20px;
+}
+
+.btn.back {
+    /* Style for the "Back to Home" link */
+    background: transparent;
+    color: #ccc;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px; /* Adjust padding for a smaller link/button look */
+    font-weight: 400;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn.back:hover {
+    color: white;
+    text-decoration: underline;
+    transform: translateX(-5px); /* Subtle shift to the left */
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 80%; /* Limit width to contain buttons */
+    }
+
+    .btn:not(.back) {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+}
