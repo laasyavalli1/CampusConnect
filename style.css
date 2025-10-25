@@ -118,6 +118,7 @@ main {
   gap: 20px;
 }
 
+/* Button Styles */
 .cta-button {
   padding: 12px 28px;
   border-radius: 5px;
@@ -393,3 +394,20 @@ footer {
   }
 }
 
+/* --- */
+/* Explore Map Button */
+.btn-primary {
+  padding: 12px 28px;
+  border-radius: 5px;
+  background: #005A9C;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  background: #004170;
+  transform: scale(1.05);
+}
