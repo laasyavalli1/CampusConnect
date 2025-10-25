@@ -1,91 +1,51 @@
+#include "crow_all.h"         // Crow framework
 #include "campus_connect.h"
-#include "group_management.h"
 #include "messaging.h"
-#include <iostream>
-using namespace std;
+#include "group_management.h"
 
 int main() {
-    CampusConnect cc;
-    Messaging msg;
-    Group devs("Developers");
+    CampusConnect cc;         // Our in-memory users
+    Messaging msg;            // Our messages
+    Group devs("Developers"); // Example group
 
-    while (true) {
-        cout << "\n====== Campus Connect Menu ======\n";
-        cout << "1. Add User\n";
-        cout << "2. Add Skill to User\n";
-        cout << "3. List Users\n";
-        cout << "4. Send Message\n";
-        cout << "5. View All Messages\n";
-        cout << "6. Exit\n";
-        cout << "Enter choice: ";
+    crow::SimpleApp app;      // Create the server
 
-        int choice;
-        cin >> choice;
-        cin.ignore(); // clear newline from buffer
+    // ===== ROUTE: create user =====
+    CROW_ROUTE(app, "/create_user").methods("POST"_method)
+    ([&cc](const crow::request& req){
+        auto body = crow::json::load(req.body);
+        if(!body) return crow::response(400, "Invalid JSON");
 
-        if (choice == 1) {
-            string name, email;
-            cout << "Enter user name: ";
-            getline(cin, name);
-            cout << "Enter user email: ";
-            getline(cin, email);
+        std::string name = body["name"].s();
+        std::string email = body["email"].s();
+        bool ok = cc.createUser(name, email);
 
-            if (cc.createUser(name, email))
-                cout << "✅ User created successfully!\n";
-            else
-                cout << "⚠️ User already exists.\n";
-        }
+        crow::json::wvalue res;
+        res["success"] = ok;
+        return crow::response{res};
+    });
 
-        else if (choice == 2) {
-            string email, skill;
-            cout << "Enter user email: ";
-            getline(cin, email);
-            cout << "Enter skill to add: ";
-            getline(cin, skill);
+    // ===== ROUTE: add skill =====
+    CROW_ROUTE(app, "/add_skill").methods("POST"_method)
+    ([&cc](const crow::request& req){
+        auto body = crow::json::load(req.body);
+        std::string email = body["email"].s();
+        std::string skill = body["skill"].s();
+        bool ok = cc.addSkill(email, skill);
 
-            if (cc.addSkill(email, skill))
-                cout << "✅ Skill added!\n";
-            else
-                cout << "⚠️ Could not add skill (user not found).\n";
-        }
+        crow::json::wvalue res;
+        res["success"] = ok;
+        return crow::response{res};
+    });
 
-        else if (choice == 3) {
-            cout << "\n--- User List ---\n";
-            auto users = cc.listUsers();
-            for (const auto& email : users) {
-                User* u = cc.getUser(email);
-                if (u) u->displayProfile();
-                cout << "----------------\n";
-            }
-        }
+    // ===== ROUTE: list users =====
+    CROW_ROUTE(app, "/list_users")
+    ([&cc](){
+        crow::json::wvalue res;
+        res["users"] = cc.listUsers();
+        return crow::response{res};
+    });
 
-        else if (choice == 4) {
-            string sender, receiver, content;
-            cout << "Sender email: ";
-            getline(cin, sender);
-            cout << "Receiver email: ";
-            getline(cin, receiver);
-            cout << "Message: ";
-            getline(cin, content);
-
-            msg.sendMessage({sender, receiver, content});
-            cout << "✅ Message sent!\n";
-        }
-
-        else if (choice == 5) {
-            cout << "\n--- All Messages ---\n";
-            msg.showAllMessages();
-        }
-
-        else if (choice == 6) {
-            cout << "👋 Exiting program. Goodbye!\n";
-            break;
-        }
-
-        else {
-            cout << "❌ Invalid choice.\n";
-        }
-    }
-
-    return 0;
+    // Start server on localhost:18080
+    app.port(18080).multithreaded().run();
 }
