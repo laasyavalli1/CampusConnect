@@ -1,28 +1,29 @@
 #include "user_profile.h"
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
-User::User(const std::string& n, const std::string& e) : name(n), email(e) {}
+// Constructor
+User::User(const std::string& name, const std::string& email)
+    : name_(name), email_(email) {}
 
-std::string User::getName() const { return name; }
-std::string User::getEmail() const { return email; }
-const std::vector<std::string>& User::getSkills() const { return skills; }
-
+// Add a new skill if it doesn't exist
 void User::addSkill(const std::string& skill) {
-    // avoid duplicates (case-insensitive optional; here exact match)
-    if (std::find(skills.begin(), skills.end(), skill) == skills.end())
-        skills.push_back(skill);
+    if (!hasSkill(skill)) {
+        skills_.push_back(skill);
+    }
 }
 
-bool User::hasSkill(const std::string& skill) const {
-    return std::find(skills.begin(), skills.end(), skill) != skills.end();
+// Check if user has a skill
+bool User::hasSkill(const std::string& skill) const noexcept {
+    return std::find(skills_.begin(), skills_.end(), skill) != skills_.end();
 }
 
+// Display user info
 void User::displayProfile() const {
-    std::cout << "Name: " << name << "\nEmail: " << email << "\nSkills:";
-    if (skills.empty()) std::cout << " None";
+    std::cout << "Name: " << name_ << "\nEmail: " << email_ << "\nSkills: ";
+    if (skills_.empty()) std::cout << "None";
     else {
-        for (const auto &s : skills) std::cout << " " << s;
+        for (const auto &s : skills_) std::cout << s << " ";
     }
     std::cout << "\n";
 }
