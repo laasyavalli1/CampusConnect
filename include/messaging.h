@@ -1,18 +1,20 @@
+#pragma once
 #ifndef MESSAGING_H
 #define MESSAGING_H
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 struct Message {
     std::string senderEmail;
-    std::string receiverEmail; // single receiver; group messaging is separate concept
+    std::string receiverEmail;
     std::string content;
 };
 
 class Messaging {
 private:
-    std::vector<Message> messages;
+    std::vector<Message> messages_;
 public:
     void sendMessage(const Message& m);
     std::vector<Message> getAllMessages() const;
