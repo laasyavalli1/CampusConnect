@@ -1,106 +1,63 @@
-/* Inherit Global Styles for consistency */
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body {
-    /* Use the same dark background and font from your main style.css */
-    font-family: 'Poppins', sans-serif;
-    background-color: #111;
-    color: white;
-    line-height: 1.6;
-    /* Center the page content vertically and horizontally */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Make sure it takes up the full viewport height */
-    text-align: center;
+  font-family: 'Poppins', sans-serif;
+  background-color: #111;
+  color: white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  text-align:center;
 }
 
-header {
-    margin-bottom: 40px;
-}
+header { margin-bottom:40px; }
+header h1 { font-size:3rem; margin-bottom:0.5rem; font-weight:700; }
+header p { font-size:1.2rem; color:#ccc; margin-bottom:2rem; }
 
-/* Page Title Style */
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-/* Subtitle/Paragraph Style */
-header p {
-    font-size: 1.2rem;
-    color: #ccc;
-    margin-bottom: 2rem;
-}
-
-/* Navigation Buttons Container */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px; /* Space between the two main buttons */
-    margin-bottom: 40px;
-}
-
-/* Button Base Style */
+.buttons { display:flex; justify-content:center; gap:30px; margin-bottom:40px; }
 .btn {
-    padding: 15px 35px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block; /* Essential for padding/sizing */
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 2px solid transparent; /* Prepare for secondary style */
+  padding:15px 35px; border-radius:5px; text-decoration:none; font-weight:600;
+  display:inline-block; font-size:1rem; text-transform:uppercase; letter-spacing:1px;
+  border:2px solid transparent; transition: all 0.3s ease;
 }
+.btn:not(.back) { background:#005A9C; color:white; }
+.btn:not(.back):hover { background:#004170; transform:translateY(-3px); box-shadow:0 4px 10px rgba(0,90,156,0.4);}
+.back-home { margin-top:20px; }
+.btn.back { background:transparent; color:#ccc; border:none; padding:10px 20px; font-weight:400; transition: color 0.3s ease, transform 0.3s ease;}
+.btn.back:hover { color:white; text-decoration:underline; transform:translateX(-5px); }
 
-/* Primary Button Style (Similar to 'Explore The Map' on homepage) */
-.btn:not(.back) {
-    background: #005A9C; /* Your primary blue color */
-    color: white;
+/* Map container */
+.map-wrapper { width:90%; max-width:1000px; margin:20px auto; text-align:left; }
+.map {
+  width:100%; aspect-ratio:16/9; background-size:contain; background-repeat:no-repeat; 
+  background-position:center; position:relative; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.6);
+  overflow:hidden; min-height:400px;
 }
-
-.btn:not(.back):hover {
-    background: #004170;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 90, 156, 0.4);
+.hotspot {
+  position:absolute; width:36px; height:36px; transform:translate(-50%,-100%); cursor:pointer;
+  border-radius:50%; display:grid; place-items:center; font-weight:700; color:white;
+  background:rgba(0,90,156,0.95); border:2px solid white; box-shadow:0 6px 12px rgba(0,0,0,0.4);
+  transition: transform 0.12s ease;
 }
+.hotspot:hover { transform:translate(-50%,-100%) scale(1.08); }
 
-/* Back to Home Link/Button */
-.back-home {
-    margin-top: 20px;
+.map-controls { margin-top:10px; display:flex; gap:10px; flex-wrap:wrap; }
+.hint { color:#aaa; font-size:0.85rem; margin-top:6px; }
+
+/* Modal */
+.modal { position:fixed; inset:0; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.6); z-index:2000; }
+.modal.hidden { display:none; }
+.modal-content {
+  width:90%; max-width:720px; background:#111; border-radius:12px; padding:18px;
+  color:white; position:relative; box-shadow:0 10px 40px rgba(0,0,0,0.7);
 }
+.modal-close { position:absolute; top:12px; right:12px; background:transparent; border:none; color:#ccc; font-size:1.2rem; cursor:pointer; }
+.photos { display:flex; gap:10px; margin-bottom:10px; }
+.photo { width:50%; height:180px; object-fit:cover; background:#222; border-radius:8px; }
+.modal-actions label { display:block; margin:8px 0; font-size:0.9rem; color:#ddd; }
+.modal-buttons { display:flex; gap:10px; margin-top:8px; justify-content:flex-end; }
 
-.btn.back {
-    /* Style for the "Back to Home" link */
-    background: transparent;
-    color: #ccc;
-    text-decoration: none;
-    border: none;
-    padding: 10px 20px; /* Adjust padding for a smaller link/button look */
-    font-weight: 400;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.btn.back:hover {
-    color: white;
-    text-decoration: underline;
-    transform: translateX(-5px); /* Subtle shift to the left */
-}
-
-/* Media Query for smaller screens */
-@media (max-width: 600px) {
-    .buttons {
-        flex-direction: column;
-        gap: 15px;
-        width: 80%; /* Limit width to contain buttons */
-    }
-
-    .btn:not(.back) {
-        width: 100%;
-    }
-
-    header h1 {
-        font-size: 2.5rem;
-    }
-}
+@media(max-width:600px){ .buttons{flex-direction:column; gap:15px; width:80%;} .btn:not(.back){width:100%;} header h1{font-size:2.5rem;} }
