@@ -1,93 +1,91 @@
 #include "campus_connect.h"
-#include "navigation.h"
+#include "group_management.h"
+#include "messaging.h"
 #include <iostream>
-#include <string>
+using namespace std;
 
 int main() {
-    CampusConnect app;
-    Navigation nav;
-    int choice = -1;
-    while (choice != 0) {
-        nav.showMenu();
-        std::cout << "Enter choice: ";
-        if (!(std::cin >> choice)) break;
+    CampusConnect cc;
+    Messaging msg;
+    Group devs("Developers");
+
+    while (true) {
+        cout << "\n====== Campus Connect Menu ======\n";
+        cout << "1. Add User\n";
+        cout << "2. Add Skill to User\n";
+        cout << "3. List Users\n";
+        cout << "4. Send Message\n";
+        cout << "5. View All Messages\n";
+        cout << "6. Exit\n";
+        cout << "Enter choice: ";
+
+        int choice;
+        cin >> choice;
+        cin.ignore(); // clear newline from buffer
+
         if (choice == 1) {
-            std::string name, email;
-            std::cout << "Name: ";
-            std::cin >> std::ws;
-            std::getline(std::cin, name);
-            std::cout << "Email: ";
-            std::cin >> email;
-            if (app.createUser(name, email)) std::cout << "User created.\n";
-            else std::cout << "User already exists.\n";
-        } else if (choice == 2) {
-            auto users = app.listUsers();
-            std::cout << "Users:\n";
-            if (users.empty()) std::cout << " (none)\n";
-            for (const auto &e : users) {
-                auto u = app.getUser(e);
+            string name, email;
+            cout << "Enter user name: ";
+            getline(cin, name);
+            cout << "Enter user email: ";
+            getline(cin, email);
+
+            if (cc.createUser(name, email))
+                cout << "✅ User created successfully!\n";
+            else
+                cout << "⚠️ User already exists.\n";
+        }
+
+        else if (choice == 2) {
+            string email, skill;
+            cout << "Enter user email: ";
+            getline(cin, email);
+            cout << "Enter skill to add: ";
+            getline(cin, skill);
+
+            if (cc.addSkill(email, skill))
+                cout << "✅ Skill added!\n";
+            else
+                cout << "⚠️ Could not add skill (user not found).\n";
+        }
+
+        else if (choice == 3) {
+            cout << "\n--- User List ---\n";
+            auto users = cc.listUsers();
+            for (const auto& email : users) {
+                User* u = cc.getUser(email);
                 if (u) u->displayProfile();
+                cout << "----------------\n";
             }
-        } else if (choice == 3) {
-            std::string email, skill;
-            std::cout << "User email: ";
-            std::cin >> email;
-            std::cout << "Skill: ";
-            std::cin >> skill;
-            if (app.addSkillToUser(email, skill)) std::cout << "Skill added.\n";
-            else std::cout << "User not found.\n";
-        } else if (choice == 4) {
-            std::string skill;
-            std::cout << "Skill to search: ";
-            std::cin >> skill;
-            auto res = app.findUsersWithSkill(skill);
-            std::cout << "Found " << res.size() << " user(s):\n";
-            for (const auto &e : res) {
-                auto u = app.getUser(e);
-                if (u) std::cout << " - " << u->getName() << " (" << e << ")\n";
-            }
-        } else if (choice == 5) {
-            std::string g;
-            std::cout << "Group name: ";
-            std::cin >> std::ws;
-            std::getline(std::cin, g);
-            if (app.createGroup(g)) std::cout << "Group created.\n";
-            else std::cout << "Group already exists.\n";
-        } else if (choice == 6) {
-            std::string g, email;
-            std::cout << "Group name: ";
-            std::cin >> std::ws;
-            std::getline(std::cin, g);
-            std::cout << "User email: ";
-            std::cin >> email;
-            if (app.addUserToGroup(g, email)) std::cout << "Added to group.\n";
-            else std::cout << "Group or user not found.\n";
-        } else if (choice == 7) {
-            auto groups = app.listGroups();
-            std::cout << "Groups:\n";
-            if (groups.empty()) std::cout << " (none)\n";
-            for (const auto &g : groups) {
-                std::cout << " - " << g << "\n";
-            }
-        } else if (choice == 8) {
-            std::string from, to, content;
-            std::cout << "From (email): ";
-            std::cin >> from;
-            std::cout << "To (email): ";
-            std::cin >> to;
-            std::cout << "Message: ";
-            std::cin.ignore();
-            std::getline(std::cin, content);
-            app.sendMessage(from, to, content);
-            std::cout << "Message queued.\n";
-        } else if (choice == 9) {
-            app.showAllMessages();
-        } else if (choice == 0) {
-            std::cout << "Goodbye.\n";
-        } else {
-            std::cout << "Invalid choice.\n";
+        }
+
+        else if (choice == 4) {
+            string sender, receiver, content;
+            cout << "Sender email: ";
+            getline(cin, sender);
+            cout << "Receiver email: ";
+            getline(cin, receiver);
+            cout << "Message: ";
+            getline(cin, content);
+
+            msg.sendMessage({sender, receiver, content});
+            cout << "✅ Message sent!\n";
+        }
+
+        else if (choice == 5) {
+            cout << "\n--- All Messages ---\n";
+            msg.showAllMessages();
+        }
+
+        else if (choice == 6) {
+            cout << "👋 Exiting program. Goodbye!\n";
+            break;
+        }
+
+        else {
+            cout << "❌ Invalid choice.\n";
         }
     }
+
     return 0;
 }
-
