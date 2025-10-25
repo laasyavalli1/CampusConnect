@@ -10,14 +10,17 @@ const photo2 = document.getElementById('photo2');
 let graph = {
   "Main Gate": {"Library":50,"Hostel A":100},
   "Library":{"Main Gate":50,"Hostel A":60},
-  "Hostel A":{"Main Gate":100,"Library":60}
+  "Hostel A":{"Main Gate":100,"Library":60},
+  "Central Library":{"Main Gate":20,"Library":70},
 };
 
 // Hotspot nodes
 let nodes = {
   "Main Gate":{x:15,y:70,img1:'main_gate1.jpg',img2:'main_gate2.jpg',details:"Main entrance"},
-  "Library":{x:50,y:40,img1:'library1.jpg',img2:'library2.jpg',details:"Central library"},
-  "Hostel A":{x:70,y:60,img1:'hostelA1.jpg',img2:'hostelA2.jpg',details:"First year hostel"}
+  "Library":{x:50,y:40,img1:'library1.jpg',img2:'library2.jpg',details:" library"},
+  "Hostel A":{x:70,y:60,img1:'hostelA1.jpg',img2:'hostelA2.jpg',details:"First year hostel"},
+  "Central Library":{x:25,y:70,img1:'cl1.jpg',img2:'cl2.jpg',details:"Central Library"},
+  
 };
 
 function renderHotspots(){
