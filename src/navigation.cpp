@@ -1,72 +1,126 @@
-
-#include "navigation.h"
-#include "user_profile.h"
+// navigation.cpp
+#include "campus_connect.h"
 #include "group_management.h"
 #include "messaging.h"
 #include <iostream>
 #include <vector>
+#include <string>
+
 using namespace std;
 
+// Example function to start a simple navigation menu
 void startSkillSharingMenu() {
-    vector<User> users;
+    CampusConnect cc;
+    Messaging chat;
     vector<Group> groups;
-    vector<Message> chat;
 
-    int choice;
-    do {
-        cout << "\n=== Skill Sharing Menu ===\n";
-        cout << "1. Create User\n";
-        cout << "2. Create Group\n";
-        cout << "3. Join Group\n";
-        cout << "4. Post Message\n";
-        cout << "5. View Messages\n";
-        cout << "6. Exit\n";
+    while (true) {
+        cout << "\n====== Skill Sharing Menu ======\n";
+        cout << "1. Add User\n";
+        cout << "2. Add Skill to User\n";
+        cout << "3. List Users\n";
+        cout << "4. Create Group\n";
+        cout << "5. Add User to Group\n";
+        cout << "6. Send Message\n";
+        cout << "7. View Messages\n";
+        cout << "8. Exit\n";
         cout << "Enter choice: ";
+
+        int choice;
         cin >> choice;
-        cin.ignore();
+        cin.ignore(); // remove leftover newline
 
         if (choice == 1) {
-            int id; string name, branch, skill;
-            cout << "Enter id, name, branch, skill: ";
-            cin >> id >> name >> branch >> skill;
-            users.push_back(createUser(id, name, branch, skill));
-        } 
+            string name, email;
+            cout << "Enter name: ";
+            getline(cin, name);
+            cout << "Enter email: ";
+            getline(cin, email);
+
+            if (cc.createUser(name, email))
+                cout << "User created successfully.\n";
+            else
+                cout << "User already exists.\n";
+        }
         else if (choice == 2) {
+            string email, skill;
+            cout << "Enter user email: ";
+            getline(cin, email);
+            cout << "Enter skill to add: ";
+            getline(cin, skill);
+
+            if (cc.addSkill(email, skill))
+                cout << "Skill added successfully.\n";
+            else
+                cout << "User not found.\n";
+        }
+        else if (choice == 3) {
+            auto users = cc.listUsers();
+            cout << "--- Users ---\n";
+            for (const auto &email : users) {
+                User* u = cc.getUser(email);
+                if (u) u->displayProfile();
+                cout << "--------------\n";
+            }
+        }
+        else if (choice == 4) {
             string gname;
             cout << "Enter group name: ";
-            cin >> gname;
-            groups.push_back(createGroup(gname));
-        } 
-        else if (choice == 3) {
-            if (groups.empty() || users.empty()) {
-                cout << "Create users and groups first.\n";
-                continue;
-            }
-            int uid, gid;
-            cout << "Enter user index and group index: ";
-            cin >> uid >> gid;
-            if (uid < users.size() && gid < groups.size())
-                addUserToGroup(groups[gid], users[uid]);
-            else
-                cout << "Invalid indices!\n";
-        } 
-        else if (choice == 4) {
-            if (users.empty()) {
-                cout << "No users available.\n";
-                continue;
-            }
-            int uid;
-            cout << "Enter user index to post: ";
-            cin >> uid;
-            cin.ignore();
-            string msg;
-            cout << "Enter message: ";
-            getline(cin, msg);
-            if (uid < users.size())
-                postMessage(chat, users[uid], msg);
-        } 
-        else if (choice == 5) {
-            viewMessages(chat);
+            getline(cin, gname);
+            groups.emplace_back(gname);
+            cout << "Group created successfully.\n";
         }
-    } while (choice != 6);
+        else if (choice == 5) {
+            if (groups.empty()) {
+                cout << "No groups available. Create a group first.\n";
+                continue;
+            }
+
+            cout << "Available groups:\n";
+            for (int i = 0; i < groups.size(); ++i)
+                cout << i << ": " << groups[i].getName() << "\n";
+
+            int gid;
+            cout << "Enter group ID: ";
+            cin >> gid;
+            cin.ignore();
+
+            string email;
+            cout << "Enter user email to add: ";
+            getline(cin, email);
+
+            User* u = cc.getUser(email);
+            if (u) {
+                groups[gid].addMember(email);
+                cout << "User added to group.\n";
+            } else {
+                cout << "User not found.\n";
+            }
+        }
+        else if (choice == 6) {
+            string sender, receiver, msgContent;
+            cout << "Sender email: ";
+            getline(cin, sender);
+            cout << "Receiver email: ";
+            getline(cin, receiver);
+            cout << "Message: ";
+            getline(cin, msgContent);
+
+            chat.sendMessage({sender, receiver, msgContent});
+            cout << "Message sent.\n";
+        }
+        else if (choice == 7) {
+            auto messages = chat.getAllMessages();
+            cout << "--- Messages ---\n";
+            for (const auto &m : messages)
+                cout << m.senderEmail << " -> " << m.receiverEmail << ": " << m.content << "\n";
+        }
+        else if (choice == 8) {
+            cout << "Exiting...\n";
+            break;
+        }
+        else {
+            cout << "Invalid choice. Try again.\n";
+        }
+    }
 }
