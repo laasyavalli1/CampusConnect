@@ -36,13 +36,30 @@ header p { font-size:1.2rem; color:#ccc; margin-bottom:2rem; }
   background-position:center; position:relative; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.6);
   overflow:hidden; min-height:400px;
 }
+
+/* Smaller, balanced hotspot icons */
 .hotspot {
-  position:absolute; width:36px; height:36px; transform:translate(-50%,-100%); cursor:pointer;
-  border-radius:50%; display:grid; place-items:center; font-weight:700; color:white;
-  background:rgba(0,90,156,0.95); border:2px solid white; box-shadow:0 6px 12px rgba(0,0,0,0.4);
+  position:absolute;
+  width:18px;              /* reduced from 36px */
+  height:18px;             /* reduced from 36px */
+  transform:translate(-50%,-100%);
+  cursor:pointer;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:600;
+  font-size:0.6rem;        /* smaller text */
+  color:white;
+  background:rgba(0,90,156,0.95);
+  border:1px solid white;  /* thinner border */
+  box-shadow:0 4px 8px rgba(0,0,0,0.3);
   transition: transform 0.12s ease;
 }
-.hotspot:hover { transform:translate(-50%,-100%) scale(1.08); }
+
+/* Smaller hover effect */
+.hotspot:hover {
+  transform:translate(-50%,-100%) scale(1.05);
+}
 
 .map-controls { margin-top:10px; display:flex; gap:10px; flex-wrap:wrap; }
 .hint { color:#aaa; font-size:0.85rem; margin-top:6px; }
@@ -60,4 +77,9 @@ header p { font-size:1.2rem; color:#ccc; margin-bottom:2rem; }
 .modal-actions label { display:block; margin:8px 0; font-size:0.9rem; color:#ddd; }
 .modal-buttons { display:flex; gap:10px; margin-top:8px; justify-content:flex-end; }
 
-@media(max-width:600px){ .buttons{flex-direction:column; gap:15px; width:80%;} .btn:not(.back){width:100%;} header h1{font-size:2.5rem;} }
+@media(max-width:600px){
+  .buttons{flex-direction:column; gap:15px; width:80%;}
+  .btn:not(.back){width:100%;}
+  header h1{font-size:2.5rem;}
+  .hotspot{width:14px; height:14px; font-size:0.55rem;} /* even smaller for mobile */
+}
