@@ -62,7 +62,6 @@ let zoneNodes = {
     "Beryl Hostel": { x: 60, y: 70, img1: "beryl1.jpg", img2: "beryl2.jpg", details: "Boys Hostel (Beryl)" },
     "Amber A/B": { x: 85, y: 45, img1: "amb1.jpg", img2: "amb2.jpg", details: "Girls Hostel (Amber A & B)" },
   },
-  },
   "Quarters Zone": {
     "Faculty Quarters": { x: 80, y: 75, img1: "fq1.jpg", img2: "fq2.jpg", details: "Faculty Residential Area" },
   },
