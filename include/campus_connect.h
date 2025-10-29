@@ -1,21 +1,19 @@
-// This header file defines the `campusconnect` class, which integrates user profiles, 
-// messaging, and group management systems into one platform for the campus network.
-
+// This header file defines the campusconnect class which manages user profiles, messaging system, and group management
 #ifndef campus_connect_h
 #define campus_connect_h
 
-#include "user_profile.h"           // Include user profile management
-#include "messaging.h"              // Include messaging system
-#include "group_management.h"       // Include group management
+#include "../include/user_profile.h"
+#include "../include/messaging.h"
+#include "../include/group_management.h"
 
-class campusconnect {               // Main class for the system
+class campusconnect {
 private:
-    userdirectory users;            // Manages user directory
-    messagingsystem messages;       // Handles messaging
-    groupmanager groups;            // Manages groups
+    userdirectory users;       // Handles the user directory (likely user management and profile info)
+    messagingsystem messages;   // Manages messaging functionality
+    groupmanager groups;       // Manages group-related functionality (creating, managing groups)
 
 public:
-    void run();                     // Starts the system
+    void run();  // Main function to run the campus connect system
 };
 
 #endif
