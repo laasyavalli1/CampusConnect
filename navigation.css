@@ -179,25 +179,19 @@ header p {
 
 /* --- BACK BUTTON (Styled and Positioned) --- */
 .back-button {
-    /* CRITICAL: Position must be absolute */
-    position: absolute; 
-    
+    /* Keep the styles for looks, but we will override position in the zoomed state */
     background-color: #007bff; 
     color: #fff;
     padding: 8px 15px; 
-    border: 1px solid #777; 
     border-radius: 5px;
-    font-size: 1em;
-    font-weight: 600;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
-    z-index: 20; 
+    z-index: 1001; /* Ensure it's on top of everything, including the modal overlay */
     
-    /* Position in the top left corner */
+    /* CRITICAL: Must be absolute for its creation by the JS, but will be fixed later */
+    position: absolute; 
     top: 5%; 
     left: 5%;
-    transform: none; /* CRITICAL: Prevents unwanted centering/scaling */
+    transform: none; 
 }
-
 .back-button:hover {
     background-color: #0056b3;
     transform: translateY(-1px);
@@ -205,7 +199,9 @@ header p {
 
 /* CRITICAL FIX for Back Button in Zoomed Mode */
 .zoomed .back-button {
-    /* Forces the back button to ignore map scaling, keeping it fixed in the corner */
+    position: fixed; /* Locks the button to the browser window */
+    top: 20px;       /* Place it 20px from the top edge of the screen */
+    left: 20px;      /* Place it 20px from the left edge of the screen */
     transform: none !important; 
 }
 
