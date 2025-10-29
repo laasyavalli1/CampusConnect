@@ -107,22 +107,11 @@ header p {
     color: #999;
 }
 
-/* --- MAP CONTAINER & WRAPPER --- */
-/* --- MAP CONTAINER & WRAPPER --- */
-/* --- MAP CONTAINER & WRAPPER --- */
-/* --- MAP CONTAINER & WRAPPER --- */
-.map-wrapper {
-    /* ➡️ CRITICAL: Set width to 90% of the screen for responsiveness */
-    width: 90vw; 
-    
-    /* ➡️ CRITICAL: Set max-width to the desired large size */
-    max-width: 1200px; 
-    
-    margin: 40px auto; 
-    overflow: hidden; 
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    background-color: #000;
+.map-wrapper { width:90%; max-width:1000px; margin:20px auto; text-align:left; }
+.map {
+  width:100%; aspect-ratio:16/9; background-size:contain; background-repeat:no-repeat; 
+  background-position:center; position:relative; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.6);
+  overflow:hidden; min-height:400px;
 }
 
 #map {
