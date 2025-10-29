@@ -109,10 +109,10 @@ header p {
 
 /* --- MAP CONTAINER & WRAPPER --- */
 /* --- MAP CONTAINER & WRAPPER --- */
+/* --- MAP CONTAINER & WRAPPER --- */
 .map-wrapper {
-    /* Contains the map and handles overflow during zoom */
-    /* ➡️ CHANGE THIS VALUE */
-    max-width: 1000px; /* Increased from 900px for a bigger map */
+    /* ➡️ INCREASED MAX-WIDTH for a much bigger map */
+    max-width: 1200px; 
     
     margin: 40px auto; 
     overflow: hidden; 
@@ -159,34 +159,41 @@ header p {
 
 /* --- ZONE Nodes (Level 1) --- */
 /* --- ZONE Nodes (Level 1) --- */
+/* --- ZONE Nodes (Level 1) --- */
 .zone {
-    /* ➡️ Change these to small dot dimensions (same as the building nodes) */
-    width: 30px; 
-    height: 30px; 
-    border-radius: 50%; /* Makes it a circle */
+    /* ➡️ Made smaller for a dot appearance */
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
     
-    /* Optional: Change the color if you want zones to stand out from buildings */
-    background-color: rgba(0, 123, 255, 0.9); /* Blue dot for zones */
+    background-color: rgba(0, 123, 255, 0.9); 
     
-    color: transparent; /* Hide the text label (e.g., "Sports") */
-    font-size: 0; /* Ensures no text overflows */
+    color: #fff; /* Ensure text is white */
+    font-size: 0.7em; /* Small font size for letter */
+    text-align: center;
+    line-height: 20px; /* Vertically center the text */
 }
 
 /* --- BUILDING Nodes (Level 2) --- */
-/* --- BUILDING Nodes (Level 2) --- */
-/* You can simplify this, or ensure it still defines the building color */
 .hotspot:not(.zone) {
-    width: 30px; 
-    height: 30px; 
+    /* ➡️ Made smaller to match zone dots */
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     
-    /* Red dot for specific buildings */
     background-color: rgba(255, 0, 0, 0.8); 
     
     color: white;
-    font-size: 0.8em;
+    font-size: 0.7em;
+    text-align: center;
+    line-height: 20px;
 }
 
+/* CRITICAL: Adjust the counter-scaling for the new, smaller size */
+.zoomed .hotspot {
+    /* Adjust scale to keep the dots small when the map zooms in */
+    transform: translate(-50%, -50%) scale(1.0); 
+}
 /* --- BACK BUTTON (Styled and Positioned) --- */
 .back-button {
     /* Specific styling for visibility */
@@ -214,12 +221,6 @@ header p {
 /* --- ZOOM EFFECT --- */
 .zoomed #map {
     /* Map is scaled by JS, this block ensures smooth visuals */
-}
-
-/* CRITICAL: Counter-scales and positions elements in zoomed view */
-.zoomed .hotspot {
-    /* Scale elements down so they don't look huge when map scales(2) */
-    transform: translate(-50%, -50%) scale(0.5); 
 }
 
 /* CRITICAL FIX for Back Button in Zoomed Mode */
