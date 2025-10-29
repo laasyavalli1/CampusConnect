@@ -28,7 +28,7 @@ let zoneNodes = {
   "Academic Zone": {
     "CSE Department": { x: 42, y: 65, img1: "cse1.jpg", img2: "cse2.jpg", details: "Computer Science Department" },
     "EEE Department": { x: 35, y: 45, img1: "eee1.jpg", img2: "eee2.jpg", details: "Electrical and Electronics" },
-    "Central Library": { x: 26, y: 65, img1: "lib1.jpg", img2: "lib2.jpg", details: "Central library with study halls" },
+    "Central Library": { x: 22, y: 65, img1: "lib1.jpg", img2: "lib2.jpg", details: "Central library with study halls" },
     "Ojas": { x: 50, y: 12, img1: "ojas1.jpg", img2: "ojas2.jpg", details: "Ojas Auditorium/Block" },
     "Orion": { x: 41, y: 20, img1: "orion1.jpg", img2: "orion2.jpg", details: "Orion Academic Block" },
     "Architecture Dept": { x: 46.6, y: 15, img1: "arch1.jpg", img2: "arch2.jpg", details: "Department of Architecture" },
@@ -37,7 +37,7 @@ let zoneNodes = {
     "Barn Hall": { x: 42, y: 38, img1: "barn1.jpg", img2: "barn2.jpg", details: "Barn Hall Examination and Lecture Complex" },
     "Golden Jubilee": { x: 50, y: 25, img1: "gj1.jpg", img2: "gj2.jpg", details: "Golden Jubilee Complex" },
     "Logos": { x: 55, y: 40, img1: "logos1.jpg", img2: "logos2.jpg", details: "Logos Lecture Hall Complex" },
-    "Octagon": { x: 49, y: 50, img1: "oct1.jpg", img2: "oct2.jpg", details: "Octagon Block" },
+    "Octagon": { x: 49, y: 48, img1: "oct1.jpg", img2: "oct2.jpg", details: "Octagon Block" },
     "Third-i": { x: 57, y: 45, img1: "thirdi1.jpg", img2: "thirdi2.jpg", details: "Third-I Innovation Center" },
     "Production Engg Dept": { x: 53, y: 52, img1: "prod1.jpg", img2: "prod2.jpg", details: "Department of Production Engineering" },
     "Mechanical Engg Dept": { x: 39, y: 47, img1: "mech1.jpg", img2: "mech2.jpg", details: "Department of Mechanical Engineering" },
