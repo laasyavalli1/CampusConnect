@@ -109,6 +109,22 @@ header p {
   background-position:center; position:relative; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.6);
   overflow:hidden; min-height:400px;
 }
+#map {
+    position: relative; 
+    width: 100%; /* CRITICAL: Ensures it fills the map-wrapper */
+    
+    /* CRITICAL: This sets the height based on a 4:3 image ratio */
+    padding-top: 75%; 
+    
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    transition: transform 0.5s ease-in-out; 
+    transform: scale(1);
+    
+    /* REMOVED: Conflicting min-height from your previous code */
+}
 
 /* --- HOTSPOTS (General Styling) --- */
 /* The back-button is deliberately excluded here to prevent centering transform */
