@@ -58,7 +58,7 @@ function renderZones() {
     btn.className = "hotspot zone";
     btn.style.left = z.x + "%";
     btn.style.top = z.y + "%";
-    // ➡️ This is the correct "first letter" logic
+    // This is the correct "first letter" logic
     btn.innerText = zoneName[0].toUpperCase(); 
     btn.title = zoneName;
     btn.addEventListener("click", () => zoomIntoZone(zoneName));
@@ -81,15 +81,14 @@ function renderZoneNodes(zoneName) {
   Object.keys(zoneNodes[zoneName]).forEach((nodeName) => {
     const node = zoneNodes[zoneName][nodeName];
     const el = document.createElement("button");
-image_f9ae39.jpg    el.className = "hotspot";
-    // ➡️ This is the correct variable 'node'
+D    el.className = "hotspot";
+    // ➡️ THIS IS THE FIX 
     el.style.left = node.x + "%";
     el.style.top = node.y + "%";
     el.innerText = nodeName[0].toUpperCase();
     el.title = nodeName;
     el.addEventListener("click", () => openModal(nodeName, node));
     map.appendChild(el);
-    // ➡️ The extra pasted code that caused the error has been REMOVED from here.
   });
 
   // Add a "Back" button (This code is now reachable)
