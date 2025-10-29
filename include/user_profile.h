@@ -1,31 +1,45 @@
-#pragma once
-#ifndef USER_PROFILE_H
-#define USER_PROFILE_H
+#ifndef user_profile_h
+#define user_profile_h
 
-#include <string>
-#include <vector>
 #include <iostream>
+#include <string>
+using namespace std;
 
-class User {
-private:
-    std::string name_;
-    std::string email_;
-    std::vector<std::string> skills_;
-public:
-    User() = default;
-    User(const std::string& name, const std::string& email);
-
-    // Getters
-    const std::string& getName() const noexcept { return name_; }
-    const std::string& getEmail() const noexcept { return email_; }
-    const std::vector<std::string>& getSkills() const noexcept { return skills_; }
-
-    // Actions
-    void addSkill(const std::string& skill);
-    bool hasSkill(const std::string& skill) const noexcept;
-
-    // Display
-    void displayProfile() const;
+struct user {
+    string name;
+    string email;
+    string skill;
+    int year;
 };
 
-#endif // USER_PROFILE_H
+struct avlnode {
+    user data;
+    avlnode* left;
+    avlnode* right;
+    int height;
+};
+
+class userdirectory {
+private:
+    avlnode* root;
+
+    int height(avlnode* n);
+    int getbalance(avlnode* n);
+    avlnode* rightrotate(avlnode* y);
+    avlnode* leftrotate(avlnode* x);
+    avlnode* insertnode(avlnode* node, user u);
+    void inorder(avlnode* node);
+    void inorderbyskill(avlnode* node, const string& skill);
+    user* finduserbyemail(avlnode* node, const string& email);
+
+public:
+    userdirectory();
+    void registeruser();
+    void listallusers();
+    void showbyskill();
+    user* getuserbyemail(const string& email);
+};
+
+bool validemail(const string& email);
+
+#endif
