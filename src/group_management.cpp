@@ -6,14 +6,14 @@
 using namespace std;
 
 void groupmanager::creategroup() {
-    cin.ignore();  // Clear input buffer
+    cin.ignore();  
     group g;
     cout << "enter group name: ";
-    getline(cin, g.name);  // Get group name from user input
+    getline(cin, g.name);  
     int n;
     cout << "enter number of members: ";
     cin >> n;  // Get number of members in the group
-    cin.ignore();  // Clear input buffer after reading integer
+    cin.ignore();  
 
     // Loop to get member emails and add them to the group
     for (int i = 0; i < n; i++) {
@@ -24,7 +24,7 @@ void groupmanager::creategroup() {
     }
     
     groups.push_back(g);  // Add the new group to the list of groups
-    cout << " group created successfully!\n";  // Confirmation message
+    cout << " group created successfully!\n";  
 }
 
 void groupmanager::listgroups() {
@@ -33,6 +33,6 @@ void groupmanager::listgroups() {
     for (auto& g : groups) {
         cout << "- " << g.name << " [ ";  // Print group name
         for (auto& m : g.members) cout << m << " ";  // Print each member's email
-        cout << "]\n";  // End of group
+        cout << "]\n";  
     }
 }
