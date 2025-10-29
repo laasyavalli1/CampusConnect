@@ -103,7 +103,7 @@ header p {
 }
 
 /* --- MAP CONTAINER & WRAPPER --- */
-.map-wrapper { width:450%; max-width:1000px; margin:20px auto; text-align:left; }
+.map-wrapper { width:90%; max-width:1000px; margin:20px auto; text-align:left; }
 .map {
   width:100%; aspect-ratio:16/9; background-size:contain; background-repeat:no-repeat; 
   background-position:center; position:relative; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.6);
