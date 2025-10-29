@@ -1,23 +1,23 @@
-#ifndef GROUP_MANAGEMENT_H
-#define GROUP_MANAGEMENT_H
+#ifndef group_management_h
+#define group_management_h
 
-#include "user_profile.h"
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
+using namespace std;
 
-class Group {
-private:
-    std::string name;
-    std::vector<std::string> memberEmails; // store emails to avoid copying users
-public:
-    Group() = default;
-    explicit Group(const std::string& name);
-
-    std::string getName() const;
-    void addMember(const std::string& userEmail);
-    void removeMember(const std::string& userEmail);
-    const std::vector<std::string>& getMembers() const;
-    void displayMembers() const; // prints emails (UI later can resolve to names)
+struct group {
+    string name;
+    vector<string> members;
 };
 
-#endif // GROUP_MANAGEMENT_H
+class groupmanager {
+private:
+    vector<group> groups;
+
+public:
+    void creategroup();
+    void listgroups();
+};
+
+#endif
