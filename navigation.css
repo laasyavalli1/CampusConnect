@@ -108,14 +108,17 @@ header p {
 }
 
 /* --- MAP CONTAINER & WRAPPER --- */
+/* --- MAP CONTAINER & WRAPPER --- */
 .map-wrapper {
     /* Contains the map and handles overflow during zoom */
-    max-width: 900px;
+    /* ➡️ CHANGE THIS VALUE */
+    max-width: 1000px; /* Increased from 900px for a bigger map */
+    
     margin: 40px auto; 
     overflow: hidden; 
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    background-color: #000; /* Matches map image background */
+    background-color: #000;
 }
 
 #map {
@@ -155,21 +158,31 @@ header p {
 }
 
 /* --- ZONE Nodes (Level 1) --- */
+/* --- ZONE Nodes (Level 1) --- */
 .zone {
-    width: 80px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: rgba(0, 123, 255, 0.9); /* Blue for zones */
-    color: #fff;
-    font-size: 0.9em;
+    /* ➡️ Change these to small dot dimensions (same as the building nodes) */
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; /* Makes it a circle */
+    
+    /* Optional: Change the color if you want zones to stand out from buildings */
+    background-color: rgba(0, 123, 255, 0.9); /* Blue dot for zones */
+    
+    color: transparent; /* Hide the text label (e.g., "Sports") */
+    font-size: 0; /* Ensures no text overflows */
 }
 
 /* --- BUILDING Nodes (Level 2) --- */
+/* --- BUILDING Nodes (Level 2) --- */
+/* You can simplify this, or ensure it still defines the building color */
 .hotspot:not(.zone) {
-    width: 30px;
-    height: 30px;
+    width: 30px; 
+    height: 30px; 
     border-radius: 50%;
-    background-color: rgba(255, 0, 0, 0.8); /* Red for building nodes */
+    
+    /* Red dot for specific buildings */
+    background-color: rgba(255, 0, 0, 0.8); 
+    
     color: white;
     font-size: 0.8em;
 }
