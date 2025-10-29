@@ -1,48 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Map</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Navigation | CampusConnect</title>
+  
+    <link rel="stylesheet" href="navigation.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Inside Campus</h1>
-            <p class="subtitle">Click any building to view photos and details</p>
-        </header>
-        
-        <div class="map-container">
-            <div id="map"></div>
-        </div>
-        
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-color zone-color"></div>
-                <span>Zone</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color node-color"></div>
-                <span>Building</span>
-            </div>
-        </div>
-    </div>
-    
-    <div id="hotspotModal" class="modal hidden">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle" class="modal-title">Building Name</h2>
-                <button id="modalClose" class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p id="modalDetails" class="modal-details">Building details will appear here.</p>
-                <img id="photo1" class="modal-photo" src="https://via.placeholder.com/400x300/3498db/ffffff?text=Photo+1" alt="Building Photo 1">
-                <img id="photo2" class="modal-photo" src="https://via.placeholder.com/400x300/e74c3c/ffffff?text=Photo+2" alt="Building Photo 2">
-            </div>
-        </div>
-    </div>
+  <header>
+    <h1>Campus Navigation</h1>
+    <p>Explore and find your way around the NIT Trichy campus</p>
+  </header>
 
-    <script src="script.js"></script>
+  <main>
+    <div class="buttons">
+            <a href="indoor.html" class="btn">Inside Campus</a>
+      <a href="outdoor.html" class="btn">Outside Campus</a>
+    </div>
+
+    <div class="back-home">
+            <a href="index.html" class="btn back">⬅ Back to Home</a>
+    </div>
+  </main>
 </body>
 </html>
