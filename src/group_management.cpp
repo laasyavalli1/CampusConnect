@@ -1,24 +1,31 @@
-#include "group_management.h"
-#include <algorithm>
+#include "../include/group_management.h"
 #include <iostream>
+using namespace std;
 
-Group::Group(const std::string& name) : name(name) {}
-
-void Group::addMember(const std::string& userEmail) {
-    if (std::find(memberEmails.begin(), memberEmails.end(), userEmail) == memberEmails.end())
-        memberEmails.push_back(userEmail);
+void groupmanager::creategroup() {
+    cin.ignore();
+    group g;
+    cout << "enter group name: ";
+    getline(cin, g.name);
+    int n;
+    cout << "enter number of members: ";
+    cin >> n;
+    cin.ignore();
+    for (int i = 0; i < n; i++) {
+        string email;
+        cout << "enter member " << i + 1 << " email: ";
+        getline(cin, email);
+        g.members.push_back(email);
+    }
+    groups.push_back(g);
+    cout << " group created successfully!\n";
 }
 
-void Group::removeMember(const std::string& userEmail) {
-    auto it = std::remove(memberEmails.begin(), memberEmails.end(), userEmail);
-    memberEmails.erase(it, memberEmails.end());
-}
-
-void Group::displayMembers() const {
-    std::cout << "Group: " << name << "\nMembers:\n";
-    if (memberEmails.empty()) std::cout << "  None\n";
-    else {
-        for (const auto& email : memberEmails)
-            std::cout << "  " << email << "\n";
+void groupmanager::listgroups() {
+    cout << "\ngroups:\n";
+    for (auto& g : groups) {
+        cout << "- " << g.name << " [ ";
+        for (auto& m : g.members) cout << m << " ";
+        cout << "]\n";
     }
 }
