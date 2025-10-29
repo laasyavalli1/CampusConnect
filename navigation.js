@@ -32,7 +32,7 @@ let zoneNodes = {
     "Ojas": { x: 50, y: 12, img1: "ojas1.jpg", img2: "ojas2.jpg", details: "Ojas Auditorium/Block" },
     "Orion": { x: 41, y: 20, img1: "orion1.jpg", img2: "orion2.jpg", details: "Orion Academic Block" },
     "Architecture Dept": { x: 46.6, y: 15, img1: "arch1.jpg", img2: "arch2.jpg", details: "Department of Architecture" },
-    "Chemical Engg Dept": { x: 38, y: 35, img1: "chem1.jpg", img2: "chem2.jpg", details: "Department of Chemical Engineering" },
+    "Chemical Engg Dept": { x: 38, y: 25, img1: "chem1.jpg", img2: "chem2.jpg", details: "Department of Chemical Engineering" },
     "Admin Block": { x: 38.5, y: 34.5, img1: "admin1.jpg", img2: "admin2.jpg", details: "Administrative Block (Main Office)" },
     "Barn Hall": { x: 42, y: 38, img1: "barn1.jpg", img2: "barn2.jpg", details: "Barn Hall Examination and Lecture Complex" },
     "Golden Jubilee": { x: 50, y: 25, img1: "gj1.jpg", img2: "gj2.jpg", details: "Golden Jubilee Complex" },
