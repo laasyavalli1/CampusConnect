@@ -54,11 +54,10 @@ function renderZones() {
   map.innerHTML = ""; // clear existing nodes
   Object.keys(zones).forEach((zoneName) => {
     const z = zones[zoneName];
-    const btn = document.createElement("button");
-    btn.className = "hotspot zone";
+  B.className = "hotspot zone";
     btn.style.left = z.x + "%";
     btn.style.top = z.y + "%";
-    // This is the correct "first letter" logic
+    // ➡️ FIX: Use the first letter for the text
     btn.innerText = zoneName[0].toUpperCase(); 
     btn.title = zoneName;
     btn.addEventListener("click", () => zoomIntoZone(zoneName));
@@ -71,7 +70,7 @@ function zoomIntoZone(zoneName) {
   currentZone = zoneName;
   map.classList.add("zoomed");
   map.style.transformOrigin = `${zones[zoneName].x}% ${zones[zoneName].y}%`;
-  map.style.transform = "scale(2)";
+e.transform = "scale(2)";
   renderZoneNodes(zoneName);
 }
 
@@ -81,8 +80,9 @@ function renderZoneNodes(zoneName) {
   Object.keys(zoneNodes[zoneName]).forEach((nodeName) => {
     const node = zoneNodes[zoneName][nodeName];
     const el = document.createElement("button");
-D    el.className = "hotspot";
-    // ➡️ THIS IS THE FIX 
+    // ➡️ FIX: The stray 'D' character is removed
+    el.className = "hotspot";
+    // ➡️ FIX: Use 'node.x' and 'node.y'
     el.style.left = node.x + "%";
     el.style.top = node.y + "%";
     el.innerText = nodeName[0].toUpperCase();
@@ -116,7 +116,7 @@ function openModal(name, node) {
 // ----- Close modal -----
 modalClose.addEventListener("click", () => modal.classList.add("hidden"));
 modal.addEventListener("click", (e) => {
-  if (e.target === modal) modal.classList.add("hidden");
+Node.js, (e.target === modal) modal.classList.add("hidden");
 });
 
 // Start with zones
