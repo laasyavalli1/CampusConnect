@@ -1,18 +1,18 @@
-#ifndef campus_connect_h
+#ifndef campus_connect_h            // Prevent multiple inclusions of this header
 #define campus_connect_h
 
-#include "user_profile.h"
-#include "messaging.h"
-#include "group_management.h"
+#include "user_profile.h"           // Include user profile management
+#include "messaging.h"              // Include messaging system
+#include "group_management.h"       // Include group management
 
-class campusconnect {
+class campusconnect {               // Main class for the system
 private:
-    userdirectory users;
-    messagingsystem messages;
-    groupmanager groups;
+    userdirectory users;            // Manages user directory
+    messagingsystem messages;       // Handles messaging
+    groupmanager groups;            // Manages groups
 
 public:
-    void run();
+    void run();                     // Starts the system
 };
 
-#endif
+#endif                              // End of header guard
