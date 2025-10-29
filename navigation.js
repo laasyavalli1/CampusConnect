@@ -87,6 +87,19 @@ function renderZoneNodes(zoneName) {
     el.title = nodeName;
     el.addEventListener("click", () => openModal(nodeName, node));
     map.appendChild(el);
+    // Inside the renderZones() function in navigation.js:
+
+// ...
+    const btn = document.createElement("button");
+    btn.className = "hotspot zone";
+    btn.style.left = z.x + "%";
+    btn.style.top = z.y + "%";
+    
+    /* ➡️ CHANGE: Use the first letter of the zone name */
+    btn.innerText = zoneName[0].toUpperCase(); 
+    
+    btn.title = zoneName;
+// ...
   });
 
   // Add a "Back" button
