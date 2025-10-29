@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inside Campus | CampusConnect</title>
-  <link rel="stylesheet" href="navigation.css?v=2">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inside Campus | CampusConnect</title>
+  <link rel="stylesheet" href="navigation.css"> </head>
 <body>
-  <header>
-    <h1>Inside Campus</h1>
-    <p>Click any building to view photos and details</p>
-  </header>
+  <header>
+    <h1>Inside Campus</h1>
+    <p>Click any building to view photos and details</p>
+  </header>
 
-  <main>
-    <div class="map-wrapper">
-      <div id="map" class="map" style="background-image: url('campus-map.jpg');"></div>
-      <small class="hint">Click a hotspot to view details</small>
-    </div>
+  <main>
+    <div class="map-wrapper">
+                  <div id="map" class="map" style="background-image: url('campus-map.jpg');"></div>
+      <small class="hint">Click a hotspot to view details</small>
+    </div>
 
-    <div class="back-home">
-      <a href="navigation.html" class="btn back">⬅ Back to Navigation</a>
-    </div>
+    <div class="back-home">
+      <a href="navigation.html" class="btn back">⬅ Back to Navigation</a>
+    </div>
 
-    <div id="hotspotModal" class="modal hidden">
-      <div class="modal-content">
-        <button class="modal-close" id="modalClose">✕</button>
-        <h2 id="modalTitle">Building</h2>
-        <div class="photos">
-          <img id="photo1" class="photo" src="" alt="photo1">
-          <img id="photo2" class="photo" src="" alt="photo2">
-        </div>
-        <p id="modalDetails"></p>
-      </div>
-    </div>
-  </main>
+        <div id="hotspotModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">✕</button>
+        <h2 id="modalTitle">Building</h2>
+        <div class="photos">
+          <img id="photo1" class="photo" src="" alt="photo1">
+          <img id="photo2" class="photo" src="" alt="photo2">
+        </div>
+        <p id="modalDetails"></p>
+      </div>
+    </div>
+  </main>
 
-  <script src="navigation.js"></script>
-</body>
+  <script src="navigation.js"></script> </body>
 </html>
