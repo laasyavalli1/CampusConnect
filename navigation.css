@@ -1,122 +1,131 @@
-/* ===== GENERAL PAGE STYLE ===== */
+/* ===== GENERAL PAGE STYLE & DARK THEME ===== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #007bff, #00bcd4);
-  color: #fff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    /* Set dark theme background */
+    background: #111111; 
+    /* Set text to white for contrast */
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically on navigation page */
+    text-align: center;
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER (for indoor.html) ===== */
 header {
-  margin-bottom: 40px;
+    margin: 40px 0 20px 0;
 }
 
 header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 header p {
-  font-size: 1.1em;
-  color: #e0f7fa;
+    font-size: 1.1em;
+    color: #ccc;
 }
 
-/* ===== BUTTONS ===== */
+/* ===== BUTTONS (General & Navigation Page) ===== */
 .buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
 .btn {
-  display: inline-block;
-  background: #fff;
-  color: #007bff;
-  padding: 12px 30px;
-  font-size: 1.1em;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+    display: inline-block;
+    background: #fff;
+    color: #007bff;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: none; /* Ensure no default border interference */
 }
 
 .btn:hover {
-  background: #007bff;
-  color: #fff;
-  transform: translateY(-3px);
+    background: #007bff;
+    color: #fff;
+    transform: translateY(-3px);
 }
 
-/* ===== BACK TO HOME BUTTON ===== */
+/* ===== BACK TO HOME / BACK TO NAVIGATION BUTTON ===== */
 .back-home {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .back {
-  background: #333;
-  color: #fff;
+    background: #333;
+    color: #fff;
 }
 
 .back:hover {
-  background: #000;
+    background: #000;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===== RESPONSIVE DESIGN (For Navigation Buttons) ===== */
 @media (min-width: 600px) {
-  .buttons {
-    flex-direction: row;
-    gap: 40px;
-  }
+    .buttons {
+        flex-direction: row;
+        gap: 40px;
+    }
 }
-/*
-|----------------------------------------------------------
-| MAP CONTAINER & WRAPPER
-|----------------------------------------------------------
-*/
+
+/* ================================================= */
+/* ===== INTERACTIVE MAP STYLES (for indoor.html) ===== */
+/* ================================================= */
+
+.hint {
+    display: block;
+    margin-top: 10px;
+    color: #999;
+}
+
+/* --- MAP CONTAINER & WRAPPER --- */
 .map-wrapper {
+    /* Contains the map and handles overflow during zoom */
     max-width: 900px;
-    margin: 40px auto; /* Added margin for spacing */
+    margin: 40px auto; 
     overflow: hidden; 
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    background-color: #333333;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    background-color: #000; /* Matches map image background */
 }
 
 #map {
+    /* CRITICAL: Allows absolute positioning of hotspots */
     position: relative; 
     width: 100%;
-    /* Adjust padding-top to match your image aspect ratio (e.g., 75% for 4:3) */
+    /* Use padding-top for consistent aspect ratio of the map image */
     padding-top: 75%; 
+    
     background-size: contain; 
     background-repeat: no-repeat;
     background-position: center;
     
-    /* ⬅️ CRITICAL for smooth zooming */
+    /* CRITICAL for smooth zooming */
     transition: transform 0.5s ease-in-out; 
     transform: scale(1);
 }
 
-/*
-|----------------------------------------------------------
-| HOTSPOTS (Initial Zone Nodes)
-|----------------------------------------------------------
-*/
+/* --- HOTSPOTS (General Styling) --- */
 .hotspot, .back-button {
-    position: absolute; /* ⬅️ CRITICAL for JS positioning */
+    position: absolute; 
     border: 2px solid #fff;
     cursor: pointer;
     font-weight: bold;
@@ -127,9 +136,14 @@ header p {
     transform: translate(-50%, -50%); 
     z-index: 10;
     transition: all 0.2s;
+    outline: none;
 }
 
-/* Style for the larger Zone buttons */
+.hotspot:hover {
+    border-color: #ffaa00;
+}
+
+/* --- ZONE Nodes (Level 1) --- */
 .zone {
     width: 80px;
     height: 30px;
@@ -139,7 +153,7 @@ header p {
     font-size: 0.9em;
 }
 
-/* Style for the smaller, zoomed-in building nodes */
+/* --- BUILDING Nodes (Level 2) --- */
 .hotspot:not(.zone) {
     width: 30px;
     height: 30px;
@@ -149,93 +163,98 @@ header p {
     font-size: 0.8em;
 }
 
-/*
-|----------------------------------------------------------
-| ZOOM EFFECT CSS
-|----------------------------------------------------------
-*/
-/* This counter-scales the hotspots so they don't look huge when the map scales */
-.zoomed .hotspot, .zoomed .back-button {
+/* --- BACK BUTTON (Styled and Positioned) --- */
+.back-button {
+    /* Specific styling for visibility */
+    background-color: #007bff; 
+    color: #fff;
+    padding: 8px 15px; 
+    border: 1px solid #777; 
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+    z-index: 20; 
+    
+    /* Position override */
+    top: 5%; 
+    left: 5%;
+    transform: none; /* Ignore hotspot centering for clean corner placement */
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+/* --- ZOOM EFFECT --- */
+.zoomed #map {
+    /* Map is scaled by JS, this block ensures smooth visuals */
+}
+
+/* CRITICAL: Counter-scales and positions elements in zoomed view */
+.zoomed .hotspot {
+    /* Scale elements down so they don't look huge when map scales(2) */
     transform: translate(-50%, -50%) scale(0.5); 
 }
 
-/*
-|----------------------------------------------------------
-| BACK BUTTON
-|----------------------------------------------------------
-*/
-.back-button {
-    width: auto;
-    padding: 5px 10px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    top: 5%; 
-    left: 5%;
-    transform: none; /* Override general hotspot transform */
+/* CRITICAL FIX for Back Button in Zoomed Mode */
+.zoomed .back-button {
+    /* Forces the back button to ignore any scaling/translation, keeping it fixed in the corner */
+    transform: none !important; 
 }
 
-/*
-|----------------------------------------------------------
-| MODAL (Popup) STYLES - Just an example
-|----------------------------------------------------------
-*/
+
+/* --- MODAL (Popup) STYLES --- */
 .modal {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); 
-    display: flex; align-items: center; justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1000;
 }
-.modal.hidden { display: none; }
-.modal-content { /* Add your modal styles here */ }
 
-/*
-|----------------------------------------------------------
-| BACK BUTTON CSS IMPROVEMENTS
-|----------------------------------------------------------
-*/
-.back-button {
-    /* Base positioning (top left of the map container) */
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+    text-align: left;
+}
+
+.modal-close {
     position: absolute;
-    top: 5%; 
-    left: 5%;
-    
-    /* Better styling for visibility and feel */
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
-    padding: 8px 15px; /* Increased padding */
-    border: 1px solid #777; 
-    border-radius: 5px;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    background: none;
+    border: none;
     cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for pop-out effect */
-    transition: background-color 0.2s, transform 0.2s;
-    z-index: 20; /* Ensure it's on top of all other elements */
-    
-    /* Override hotspot transform to ensure it stays in the corner */
-    transform: none; 
+    color: #333;
 }
 
-/* Hover effect */
-.back-button:hover {
-    background-color: #555;
-    transform: translateY(-1px); /* Slight lift on hover */
+.photos {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
 }
 
-/*
-|----------------------------------------------------------
-| CRITICAL FOR QUARTERS ZONE FIX
-|----------------------------------------------------------
-*/
-/*
-When the map is zoomed, the back button is scaled down by the .zoomed .hotspot CSS.
-We need to ensure it's not overly scaled or translated when the map scales.
-Your previous CSS might be too aggressive. Re-verify this section:
-*/
-.zoomed .back-button {
-    /* ONLY counter-scale if the map scale is affecting its size.
-       If its size is fine but position is off, remove 'transform' entirely and
-       just rely on 'top' and 'left'. */
-    transform: none !important; /* Forces it to ignore any scaling/translation */
+.photo {
+    width: 50%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
 }
