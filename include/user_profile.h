@@ -9,24 +9,24 @@
 using namespace std;
 
 struct user {
-    string name;   // User's name
-    string email;  // User's email
-    string skill;  // User's skill
-    int year;      // User's year (e.g., year of study)
+    string name;   
+    string email;  
+    string skill;  
+    int year;      
 };
 
 struct avlnode {
-    user data;          // Data for the user
-    avlnode* left;      // Left child in the AVL tree
-    avlnode* right;     // Right child in the AVL tree
-    int height;         // Height of the node in the AVL tree
+    user data;          
+    avlnode* left;      
+    avlnode* right;     
+    int height;         
 };
 
 class userdirectory {
 private:
-    avlnode* root;  // Root node of the AVL tree for storing users
+    avlnode* root;  
 
-    // Helper functions for managing AVL tree balance
+    
     int height(avlnode* n);                        // Returns height of the node
     int getbalance(avlnode* n);                    // Returns balance factor of the node
     avlnode* rightrotate(avlnode* y);              // Right rotation for AVL balancing
