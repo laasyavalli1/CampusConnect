@@ -110,8 +110,12 @@ header p {
 /* --- MAP CONTAINER & WRAPPER --- */
 /* --- MAP CONTAINER & WRAPPER --- */
 /* --- MAP CONTAINER & WRAPPER --- */
+/* --- MAP CONTAINER & WRAPPER --- */
 .map-wrapper {
-    /* ➡️ INCREASED MAX-WIDTH for a much bigger map */
+    /* ➡️ CRITICAL: Set width to 90% of the screen for responsiveness */
+    width: 90vw; 
+    
+    /* ➡️ CRITICAL: Set max-width to the desired large size */
     max-width: 1200px; 
     
     margin: 40px auto; 
