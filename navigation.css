@@ -103,18 +103,27 @@ header p {
 }
 
 /* --- MAP CONTAINER & WRAPPER --- */
-.map-wrapper { width:90%; max-width:1000px; margin:20px auto; text-align:left; }
-.map {
-  width:100%; aspect-ratio:16/9; background-size:contain; background-repeat:no-repeat; 
-  background-position:center; position:relative; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.6);
-  overflow:hidden; min-height:400px;
+.map-wrapper { 
+    /* CRITICAL: Set width to 90% of the viewport (vw) for responsiveness */
+    width: 90vw; 
+    /* CRITICAL: This ensures the map is large */
+    max-width: 1200px; 
+    
+    margin: 40px auto; 
+    overflow: hidden; 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    background-color: #000;
+    text-align: left;
+    
+    /* REMOVED: Conflicting width and aspect-ratio from your previous code */
 }
-
 
 #map {
     position: relative; 
-    width: 100%;
-    /* Use padding-top for consistent aspect ratio of the map image */
+    width: 100%; /* CRITICAL: Ensures it fills the map-wrapper */
+    
+    /* CRITICAL: This sets the height based on a 4:3 image ratio */
     padding-top: 75%; 
     
     background-size: contain; 
@@ -123,6 +132,8 @@ header p {
     
     transition: transform 0.5s ease-in-out; 
     transform: scale(1);
+    
+    /* REMOVED: Conflicting min-height from your previous code */
 }
 
 /* --- HOTSPOTS (General Styling) --- */
