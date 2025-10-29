@@ -11,11 +11,11 @@ const photo2 = document.getElementById('photo2');
 
 // ----- Level 1: Zones -----
 let zones = {
-  "Sports Zone": { x: 10, y: 60 },
-  "Academic Zone": { x: 40, y: 40 },
-  "Hostel Zone": { x: 70, y: 55 },
-  "Quarters Zone": { x: 85, y: 70 },
-  "Shopping Zone": { x: 55, y: 80 },
+  "Sports Zone": { x: 25, y: 50 },
+  "Academic Zone": { x: 45.7, y: 54.5 },
+  "Hostel Zone": { x: 78, y: 50 },
+  "Quarters Zone": { x: 40, y: 75 },
+  "Shopping Zone": { x: 57, y: 70 },
 };
 
 // ----- Level 2: Nodes inside zones -----
