@@ -131,7 +131,7 @@ header p {
 }
 
 /* --- HOTSPOTS (General Styling) --- */
-.hotspot, .back-button {
+.hotspot {
     position: absolute; 
     border: 2px solid #fff;
     cursor: pointer;
@@ -189,6 +189,9 @@ header p {
 }
 /* --- BACK BUTTON (Styled and Positioned) --- */
 .back-button {
+    /* Specific styling for visibility */
+    position: absolute; 
+    
     /* Specific styling for visibility */
     background-color: #007bff; 
     color: #fff;
