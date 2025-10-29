@@ -54,11 +54,11 @@ function renderZones() {
   map.innerHTML = ""; // clear existing nodes
   Object.keys(zones).forEach((zoneName) => {
     const z = zones[zoneName];
-  B.className = "hotspot zone";
+    const btn = document.createElement("button"); // CRITICAL: 'btn' variable defined
+    btn.className = "hotspot zone";
     btn.style.left = z.x + "%";
     btn.style.top = z.y + "%";
-    // ➡️ FIX: Use the first letter for the text
-    btn.innerText = zoneName[0].toUpperCase(); 
+    btn.innerText = zoneName[0].toUpperCase(); 
     btn.title = zoneName;
     btn.addEventListener("click", () => zoomIntoZone(zoneName));
     map.appendChild(btn);
@@ -70,7 +70,7 @@ function zoomIntoZone(zoneName) {
   currentZone = zoneName;
   map.classList.add("zoomed");
   map.style.transformOrigin = `${zones[zoneName].x}% ${zones[zoneName].y}%`;
-e.transform = "scale(2)";
+  map.style.transform = "scale(2)"; // CRITICAL: Fixes typo 'e.transform' to 'map.style.transform'
   renderZoneNodes(zoneName);
 }
 
@@ -80,9 +80,8 @@ function renderZoneNodes(zoneName) {
   Object.keys(zoneNodes[zoneName]).forEach((nodeName) => {
     const node = zoneNodes[zoneName][nodeName];
     const el = document.createElement("button");
-    // ➡️ FIX: The stray 'D' character is removed
     el.className = "hotspot";
-    // ➡️ FIX: Use 'node.x' and 'node.y'
+    // CRITICAL FIX: Use 'node' instead of 'z'
     el.style.left = node.x + "%";
     el.style.top = node.y + "%";
     el.innerText = nodeName[0].toUpperCase();
@@ -91,7 +90,7 @@ function renderZoneNodes(zoneName) {
     map.appendChild(el);
   });
 
-  // Add a "Back" button (This code is now reachable)
+  // Add a "Back" button (Now guaranteed to run)
   const backBtn = document.createElement("button");
   backBtn.className = "back-button";
   backBtn.innerText = "← Back";
@@ -116,7 +115,7 @@ function openModal(name, node) {
 // ----- Close modal -----
 modalClose.addEventListener("click", () => modal.classList.add("hidden"));
 modal.addEventListener("click", (e) => {
-Node.js, (e.target === modal) modal.classList.add("hidden");
+  if (e.target === modal) modal.classList.add("hidden"); // CRITICAL: Fixes stray text
 });
 
 // Start with zones
