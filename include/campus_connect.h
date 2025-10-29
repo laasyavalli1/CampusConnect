@@ -1,21 +1,18 @@
-#pragma once
-#ifndef CAMPUS_CONNECT_H
-#define CAMPUS_CONNECT_H
+#ifndef campus_connect_h
+#define campus_connect_h
 
 #include "user_profile.h"
-#include <string>
-#include <vector>
-#include <unordered_map>
-#include <memory>
+#include "messaging.h"
+#include "group_management.h"
 
-class CampusConnect {
+class campusconnect {
 private:
-    std::unordered_map<std::string, std::unique_ptr<User>> users_;
+    userdirectory users;
+    messagingsystem messages;
+    groupmanager groups;
+
 public:
-    bool createUser(const std::string &name, const std::string &email);
-    bool addSkill(const std::string &email, const std::string &skill);
-    std::vector<std::string> listUsers() const;
-    User* getUser(const std::string &email);
+    void run();
 };
 
-#endif // CAMPUS_CONNECT_H
+#endif
