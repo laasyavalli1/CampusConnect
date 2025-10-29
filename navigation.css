@@ -188,3 +188,54 @@ header p {
 }
 .modal.hidden { display: none; }
 .modal-content { /* Add your modal styles here */ }
+
+/*
+|----------------------------------------------------------
+| BACK BUTTON CSS IMPROVEMENTS
+|----------------------------------------------------------
+*/
+.back-button {
+    /* Base positioning (top left of the map container) */
+    position: absolute;
+    top: 5%; 
+    left: 5%;
+    
+    /* Better styling for visibility and feel */
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 8px 15px; /* Increased padding */
+    border: 1px solid #777; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for pop-out effect */
+    transition: background-color 0.2s, transform 0.2s;
+    z-index: 20; /* Ensure it's on top of all other elements */
+    
+    /* Override hotspot transform to ensure it stays in the corner */
+    transform: none; 
+}
+
+/* Hover effect */
+.back-button:hover {
+    background-color: #555;
+    transform: translateY(-1px); /* Slight lift on hover */
+}
+
+/*
+|----------------------------------------------------------
+| CRITICAL FOR QUARTERS ZONE FIX
+|----------------------------------------------------------
+*/
+/*
+When the map is zoomed, the back button is scaled down by the .zoomed .hotspot CSS.
+We need to ensure it's not overly scaled or translated when the map scales.
+Your previous CSS might be too aggressive. Re-verify this section:
+*/
+.zoomed .back-button {
+    /* ONLY counter-scale if the map scale is affecting its size.
+       If its size is fine but position is off, remove 'transform' entirely and
+       just rely on 'top' and 'left'. */
+    transform: none !important; /* Forces it to ignore any scaling/translation */
+}
