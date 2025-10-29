@@ -1,25 +1,25 @@
-#pragma once
-#ifndef MESSAGING_H
-#define MESSAGING_H
+#ifndef messaging_h
+#define messaging_h
 
-#include <string>
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
-struct Message {
-    std::string senderEmail;
-    std::string receiverEmail;
-    std::string content;
+struct message {
+    string sender;
+    string receiver;
+    string text;
 };
 
-class Messaging {
+class messagingsystem {
 private:
-    std::vector<Message> messages_;
+    vector<message> messages;
+
 public:
-    void sendMessage(const Message& m);
-    std::vector<Message> getAllMessages() const;
-    std::vector<Message> getMessagesBetween(const std::string& a, const std::string& b) const;
-    void showAllMessages() const;
+    void sendmessage(const string& sender, const string& receiver);
+    void viewmessages(const string& sender, const string& receiver);
 };
 
-#endif // MESSAGING_H
+#endif
+
