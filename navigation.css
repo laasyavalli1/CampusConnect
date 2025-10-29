@@ -1,281 +1,260 @@
-/* ===== GENERAL PAGE STYLE & DARK THEME ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    /* Set dark theme background */
-    background: #111111; 
-    /* Set text to white for contrast */
-    color: #fff;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    color: white;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center content vertically on navigation page */
-    text-align: center;
+    padding: 20px;
 }
 
-/* ===== HEADER (for indoor.html) ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
 header {
-    margin: 40px 0 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-header h1 {
-    font-size: 2.5em;
+h1 {
+    font-size: 2.5rem;
     margin-bottom: 10px;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-header p {
-    font-size: 1.1em;
-    color: #ccc;
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
-/* ===== BUTTONS (General & Navigation Page) ===== */
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-}
-
-/* ===== BUTTONS (General & Navigation Page) ===== */
-
-.btn {
-    display: inline-block;
-    /* Changed background from white to dark blue */
-    background: #007bff; /* Primary Blue for emphasis */
-    color: #ffffff; /* White text */
-    padding: 12px 30px;
-    font-size: 1.1em;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    /* Adjusted shadow for a modern look on a dark background */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-    border: 1px solid transparent; /* Ensure consistent border */
-}
-
-.btn:hover {
-    background: #0056b3; /* Darker blue on hover */
-    color: #fff;
-    transform: translateY(-2px); /* Slight lift */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-}
-
-/* ===== BACK TO HOME / BACK TO NAVIGATION BUTTON ===== */
-.back-home {
-    margin-top: 40px;
-}
-
-/* ===== BACK TO HOME / BACK TO NAVIGATION BUTTON ===== */
-
-.back {
-    /* Set to a darker shade of gray */
-    background: #2b2b2b; 
-    color: #ccc; /* Lighter text color */
-    border: 1px solid #444; /* Subtle border */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.back:hover {
-    background: #3a3a3a; /* Slightly lighter gray on hover */
-    color: #fff;
-}
-
-/* ===== RESPONSIVE DESIGN (For Navigation Buttons) ===== */
-@media (min-width: 600px) {
-    .buttons {
-        flex-direction: row;
-        gap: 40px;
-    }
-}
-
-/* ================================================= */
-/* ===== INTERACTIVE MAP STYLES (for indoor.html) ===== */
-/* ================================================= */
-
-.hint {
-    display: block;
-    margin-top: 10px;
-    color: #999;
-}
-
-.map-wrapper { width:90%; max-width:1000px; margin:20px auto; text-align:left; }
-.map {
-  width:100%; aspect-ratio:16/9; background-size:contain; background-repeat:no-repeat; 
-  background-position:center; position:relative; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.6);
-  overflow:hidden; min-height:400px;
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: #2c3e50;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 3px solid #34495e;
+    transition: all 0.5s ease;
 }
 
 #map {
-    /* CRITICAL: Allows absolute positioning of hotspots */
-    position: relative; 
+    position: relative;
     width: 100%;
-    /* Use padding-top for consistent aspect ratio of the map image */
-    padding-top: 75%; 
-    
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    /* CRITICAL for smooth zooming */
-    transition: transform 0.5s ease-in-out; 
-    transform: scale(1);
+    height: 100%;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    transition: transform 0.5s ease;
 }
 
-/* --- HOTSPOTS (General Styling) --- */
 .hotspot {
-    position: absolute; 
-    border: 2px solid #fff;
-    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #e74c3c;
+    color: white;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Centers the pin exactly on the coordinates */
-    transform: translate(-50%, -50%); 
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 10;
-    transition: all 0.2s;
-    outline: none;
 }
 
 .hotspot:hover {
-    border-color: #ffaa00;
+    transform: translate(-50%, -50%) scale(1.2);
+    background: #c0392b;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* --- ZONE Nodes (Level 1) --- */
-/* --- ZONE Nodes (Level 1) --- */
-/* --- ZONE Nodes (Level 1) --- */
-.zone {
-    /* ➡️ Made smaller for a dot appearance */
-    width: 20px; 
-    height: 20px; 
-    border-radius: 50%; 
-    
-    background-color: rgba(0, 123, 255, 0.9); 
-    
-    color: #fff; /* Ensure text is white */
-    font-size: 0.7em; /* Small font size for letter */
-    text-align: center;
-    line-height: 20px; /* Vertically center the text */
+.hotspot.zone {
+    background: #9b59b6;
+    width: 60px;
+    height: 60px;
 }
 
-/* --- BUILDING Nodes (Level 2) --- */
-.hotspot:not(.zone) {
-    /* ➡️ Made smaller to match zone dots */
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    
-    background-color: rgba(255, 0, 0, 0.8); 
-    
-    color: white;
-    font-size: 0.7em;
-    text-align: center;
-    line-height: 20px;
+.hotspot.zone:hover {
+    background: #8e44ad;
 }
 
-/* CRITICAL: Adjust the counter-scaling for the new, smaller size */
-.zoomed .hotspot {
-    /* Adjust scale to keep the dots small when the map zooms in */
-    transform: translate(-50%, -50%) scale(1.0); 
-}
-/* --- BACK BUTTON (Styled and Positioned) --- */
 .back-button {
-    /* Specific styling for visibility */
-    position: absolute; 
-    
-    /* Specific styling for visibility */
-    background-color: #007bff; 
-    color: #fff;
-    padding: 8px 15px; 
-    border: 1px solid #777; 
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background: #3498db;
+    color: white;
+    border: none;
     border-radius: 5px;
-    font-size: 1em;
-    font-weight: 600;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
-    z-index: 20; 
-    
-    /* Position override */
-    top: 5%; 
-    left: 5%;
-    transform: none; /* Ignore hotspot centering for clean corner placement */
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 100;
+    transition: all 0.3s ease;
 }
 
 .back-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-1px);
+    background: #2980b9;
+    transform: translateY(-2px);
 }
 
-/* --- ZOOM EFFECT --- */
-.zoomed #map {
-    /* Map is scaled by JS, this block ensures smooth visuals */
-}
-
-/* CRITICAL FIX for Back Button in Zoomed Mode */
-.zoomed .back-button {
-    /* Forces the back button to ignore any scaling/translation, keeping it fixed in the corner */
-    transform: none !important; 
-}
-
-
-/* --- MODAL (Popup) STYLES --- */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .modal.hidden {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .modal-content {
-    background: #fff;
+    background: white;
     color: #333;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 600px;
     width: 90%;
-    position: relative;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
-    text-align: left;
+    max-width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.modal.hidden .modal-content {
+    transform: scale(0.7);
+}
+
+.modal-header {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    margin: 0;
 }
 
 .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5em;
     background: none;
     border: none;
+    color: white;
+    font-size: 1.5rem;
     cursor: pointer;
-    color: #333;
+    transition: transform 0.3s ease;
 }
 
-.photos {
-    display: flex;
-    gap: 15px;
-    margin: 15px 0;
+.modal-close:hover {
+    transform: scale(1.2);
 }
 
-.photo {
-    width: 50%;
-    max-height: 150px;
+.modal-body {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.modal-details {
+    grid-column: 1 / -1;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.modal-photo {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.zone-color {
+    background: #9b59b6;
+}
+
+.node-color {
+    background: #e74c3c;
+}
+
+@media (max-width: 768px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .map-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        height: 400px;
+    }
+    
+    .hotspot {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    
+    .hotspot.zone {
+        width: 50px;
+        height: 50px;
+    }
 }
