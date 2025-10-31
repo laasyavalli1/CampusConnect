@@ -157,6 +157,6 @@ void userdirectory::addskill(const string& email, const string& skill) {
 
 // Validates that the email follows the correct format (i.e., it ends with @nitt.edu)
 bool validemail(const string& email) {
-    regex pattern(R"((\w+)(@nitt\.edu))");  // Regex pattern for @nitt.edu emails
-    return regex_match(email, pattern);  // Check if the email matches the pattern
+    regex pattern(R"(^\d{9}@nitt\.edu$)");
+    return regex_match(email, pattern);
 }
