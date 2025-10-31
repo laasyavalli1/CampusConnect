@@ -1,34 +1,50 @@
 #include "navigation.h"
 
-void CampusMap::addBuilding(const string &name, const string &desc) {
-    graph[name] = {name, desc, {}};
-}
+int main() {
+    graph campus;
 
-void CampusMap::addPath(const string &from, const string &to) {
-    graph[from].connectedTo.push_back(to);
-    graph[to].connectedTo.push_back(from); // bidirectional path
-}
+    campus.addedge("main gate", "admin", 50);
+    campus.addedge("admin", "library", 250);
+    campus.addedge("admin", "chemical", 100);
+    campus.addedge("admin", "nso", 100);
+    campus.addedge("admin", "orion", 150);
+    campus.addedge("admin", "barn", 50);
+    campus.addedge("admin", "logos", 150);
+    campus.addedge("admin", "eee", 50);
+    campus.addedge("admin", "mech", 100);
+    campus.addedge("admin", "mme", 100);
+    campus.addedge("admin", "octagon", 100);
+    campus.addedge("admin", "prod", 200);
+    campus.addedge("admin", "ice", 500);
+    campus.addedge("admin", "ojas", 300);
+    campus.addedge("admin", "arch", 250);
+    campus.addedge("admin", "gjch", 200);
+    campus.addedge("admin", "civil", 200);
+    campus.addedge("admin", "2k", 600);
+    campus.addedge("cse", "library", 150);
+    campus.addedge("cse", "eee", 400);
+    campus.addedge("cse", "ice", 25);
+    campus.addedge("cse", "nso", 300);
+    campus.addedge("cse", "chemical", 600);
 
-bool CampusMap::buildingExists(const string &name) const {
-    return graph.find(name) != graph.end();
-}
+    string start, end;
+    cout << "\nEnter your start landmark: ";
+    getline(cin, start);
+    cout << "Enter your destination landmark: ";
+    getline(cin, end);
 
-void CampusMap::showBuildingDetails(const string &name) const {
-    auto it = graph.find(name);
-    if (it == graph.end()) {
-        cout << "Building not found.\n";
-        return;
-    }
-    const Building &b = it->second;
-    cout << "\n📍 " << b.name << "\n";
-    cout << "ℹ️ Description: " << b.description << "\n";
-    cout << "Connected To: ";
-    for (auto &adj : b.connectedTo) cout << adj << " ";
-    cout << "\n";
-}
+    campus.shortestpath(start, end);
 
-void CampusMap::listAllBuildings() const {
-    cout << "Buildings in Campus:\n";
-    for (auto &pair : graph)
-        cout << "- " << pair.first << "\n";
+    char choice;
+    cout << "\nWould you like to view the complete campus map? (y/n): ";
+    cin >> choice;
+    if (choice == 'y' || choice == 'Y') {
+        campus.displaymap();
+        cout << "\nEnter a landmark to explore nearby buildings (BFS): ";
+        cin.ignore();
+        string bfsStart;
+        getline(cin, bfsStart);
+        campus.bfs(bfsStart);
+    }
+    return 0;
 }
