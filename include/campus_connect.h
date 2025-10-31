@@ -8,7 +8,7 @@
 
 class campusconnect {
 private:
-    userdirectory users;       // Handles the user directory (likely user management and profile info)
+    userdirectory users;       // Handles the user directory 
     messagingsystem messages;   // Manages messaging functionality
     groupmanager groups;       // Manages group-related functionality (creating, managing groups)
 
