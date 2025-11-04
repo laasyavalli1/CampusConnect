@@ -17,7 +17,7 @@ int main() {
         cout << "1. Register user\n";
         cout << "2. List all users\n";
         cout << "3. Show users by skill\n";
-        cout << "4. Search users (by skill, proficiency, year)\n";
+        cout << "4. Search users (by skill, proficiency, year)\n";  // Updated to mention proficiency
         cout << "5. Add skill to user\n";
         cout << "6. Send message\n";
         cout << "7. View messages\n";
@@ -36,15 +36,15 @@ int main() {
             case 4: {
                 // Collects search parameters and searches for users based on skill, proficiency, and year
                 string skill;
-                int proficiency, year;
+                int year, proficiency;
                 cout << "Enter skill to search (leave blank for no filter): ";
                 cin.ignore();
                 getline(cin, skill);
-                cout << "Enter proficiency to search (1-10 or -1 for no filter): ";
+                cout << "Enter minimum proficiency (1-10 or -1 for no filter): ";  // Added
                 cin >> proficiency;
                 cout << "Enter year to search (1-4 or -1 for no filter): ";
                 cin >> year;
-                directory.searchusers(skill, proficiency, year);
+                directory.searchusers(skill, proficiency, year);  // Updated to include proficiency
                 break;
             }
             case 5: {
