@@ -12,6 +12,7 @@ struct user {
     string email;   
     string skill;  
     int year;       
+    int proficiency;   // Added: proficiency level (1–10)
 };
 
 // Structure representing a node in the AVL tree for storing users
@@ -35,6 +36,7 @@ private:
     void inorder(avlnode* node);                       // In-order traversal of the tree
     void inorderbyskill(avlnode* node, const string& skill);  // In-order traversal filtered by skill
     user* finduserbyemail(avlnode* node, const string& email); // Finds user by email in the tree
+    void inordersearch(avlnode* node, const string& skill, int proficiency, int year); // Added: helper for combined search
 
 public:
     userdirectory();                                    // Constructor to initialize the user directory
