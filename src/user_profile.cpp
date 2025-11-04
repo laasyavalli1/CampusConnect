@@ -85,6 +85,8 @@ void userdirectory::registeruser() {
     getline(cin, u.skill);
     cout << "Enter year of study: ";
     cin >> u.year;
+    cout << "Enter proficiency level (1-10): ";   // Added
+    cin >> u.proficiency;
 
     root = insertnode(root, u);  // Insert the new user into the AVL tree
     cout << "User registered successfully!\n";
@@ -95,7 +97,8 @@ void userdirectory::inorder(avlnode* node) {
     if (!node) return;
     inorder(node->left);  // Visit left subtree
     cout << node->data.name << " | " << node->data.email
-         << " | Skill: " << node->data.skill << " | Year: " << node->data.year << endl;
+         << " | Skill: " << node->data.skill << " | Year: " << node->data.year
+         << " | Proficiency: " << node->data.proficiency << endl;   // Added proficiency display
     inorder(node->right);  // Visit right subtree
 }
 
@@ -110,7 +113,7 @@ void userdirectory::inorderbyskill(avlnode* node, const string& skill) {
     if (!node) return;
     inorderbyskill(node->left, skill);  // Traverse left subtree
     if (node->data.skill == skill)  // Print user if the skill matches
-        cout << node->data.name << " (" << node->data.year << " year)\n";
+        cout << node->data.name << " (" << node->data.year << " year) | Proficiency: " << node->data.proficiency << endl; // Added
     inorderbyskill(node->right, skill);  // Traverse right subtree
 }
 
@@ -124,10 +127,29 @@ void userdirectory::showbyskill() {
     inorderbyskill(root, skill);  // Display users with matching skill
 }
 
-// Searches for users based on the provided skill, proficiency, and year (currently placeholder)
+// Helper to search by skill, proficiency, and year
+void userdirectory::inordersearch(avlnode* node, const string& skill, int proficiency, int year) {
+    if (!node) return;
+    inordersearch(node->left, skill, proficiency, year);
+
+    bool matchSkill = (skill.empty() || node->data.skill == skill);
+    bool matchProficiency = (proficiency == -1 || node->data.proficiency >= proficiency);
+    bool matchYear = (year == -1 || node->data.year == year);
+
+    if (matchSkill && matchProficiency && matchYear) {
+        cout << node->data.name << " | " << node->data.email
+             << " | Skill: " << node->data.skill
+             << " | Year: " << node->data.year
+             << " | Proficiency: " << node->data.proficiency << endl;
+    }
+
+    inordersearch(node->right, skill, proficiency, year);
+}
+
+// Searches for users based on the provided skill, proficiency, and year
 void userdirectory::searchusers(const string& skill, int proficiency, int year) {
     cout << "Searching for users...\n";
-    inorder(root);  // Placeholder, replace with actual filtering logic
+    inordersearch(root, skill, proficiency, year);
 }
 
 // Finds and returns a user by their email address
@@ -156,7 +178,9 @@ void userdirectory::addskill(const string& email, const string& skill) {
 }
 
 // Validates that the email follows the correct format (i.e., it ends with @nitt.edu)
+// Validates that the email is in correct roll-number format (only digits) and ends with @nitt.edu
 bool validemail(const string& email) {
+
     regex pattern(R"(^\d{9}@nitt\.edu$)");
     return regex_match(email, pattern);
 }
