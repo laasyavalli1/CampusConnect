@@ -1,5 +1,6 @@
 // The messagingsystem class handles sending, viewing, and displaying the chat history between users.
 #include "../include/messaging.h"
+#include "../include/user_profile.h"
 #include <iostream>
 #include <algorithm>  // Include the algorithm header for sorting
 using namespace std;
