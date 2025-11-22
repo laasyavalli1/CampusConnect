@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Map - NIT Trichy</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusConnect – NIT Trichy</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">CampusConnect</a>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html">Features</a></li>
-      </ul>
-    </nav>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>CampusConnect</h1>
+      <p>Skill Sharing & Smart Navigation Platform — NIT Trichy</p>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#buildings">Explore Buildings</a></li>
+          <li><a href="#skill-sharing">Skill Sharing</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main class="hero-section">
-    <div class="hero-content">
-      <h1>Interactive Map of NIT Trichy</h1>
-      <p>Find departments, hostels, and key locations with ease.</p>
-
-      <div class="button-group">
-        <a href="navigation.html" class="btn-primary" id="explore-map-btn">Explore The Map</a>
-        <a href="login.html" class="cta-button secondary">Skill Sharing Platform</a>
+  <main>
+    <section id="buildings" class="buildings-section">
+      <h2>Buildings</h2>
+      <div class="building-cards" id="building-cards-container">
+        <!-- Building cards will be dynamically added by JS -->
       </div>
-    </div>
+    </section>
+
+    <section id="skill-sharing" class="skill-sharing-section">
+      <h2>Skill Sharing</h2>
+      <p>Coming soon: branch-wise groups, mentor listings, resources and more.</p>
+      <!-- Later, you will integrate your JS here for skill-sharing content -->
+    </section>
+
+    <section id="about" class="about-section">
+      <h2>About CampusConnect</h2>
+      <p>This platform is created by students of NIT Trichy to foster skill-sharing and help navigate our campus effectively.</p>
+      <p>Team: Your Names Here</p>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 CampusConnect — NIT Trichy</p>
+  </footer>
+
+  <script src="buildings.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
