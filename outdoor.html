@@ -7,14 +7,20 @@
   <link rel="stylesheet" href="navigation.css">
 </head>
 <body>
-  <header class="navbar">
+  <header>
     <h1>Outside Campus</h1>
-    <p>Explore surroundings and nearby facilities</p>
+    <p>Find hostels, canteens, and other external facilities</p>
   </header>
 
-  <main class="page-section">
-    <p>Map and information of nearby locations like banks, ATMs, hospitals, and eateries will be displayed here.</p>
-    <a href="navigation.html" class="btn back">⬅ Back to Navigation</a>
+  <main>
+    <div class="map-wrapper">
+      <div id="outdoor-map" style="background-image: url('campus-map.jpg');"></div>
+      <small class="hint">Click a hotspot to view details</small>
+    </div>
+
+    <div class="back-home">
+      <a href="navigation.html" class="btn-back">⬅ Back to Navigation</a>
+    </div>
   </main>
 </body>
 </html>
