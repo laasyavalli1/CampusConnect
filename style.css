@@ -1,4 +1,4 @@
-/* General Styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +6,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Body and global */
 body {
-  background-color: #121212;
-  color: #f0f0f0;
+  background-color: #0f111a;
+  color: #ffffff;
+  line-height: 1.6;
 }
 
 a {
@@ -16,200 +18,119 @@ a {
   color: inherit;
 }
 
-/* Navbar */
-.navbar {
+/* Header */
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1f1f1f;
-  padding: 1rem 2rem;
+  padding: 1rem 3rem;
+  background: rgba(0, 0, 0, 0.7);
   position: sticky;
   top: 0;
   z-index: 100;
+  backdrop-filter: blur(8px);
 }
 
-.navbar .logo {
+header .logo {
   font-weight: 700;
-  font-size: 1.5rem;
-  color: #00bcd4;
+  font-size: 1.8rem;
+  color: #ffd700; /* NIT Trichy vibe golden */
 }
 
-.navbar nav ul {
-  list-style: none;
+header nav ul {
   display: flex;
-  gap: 1.5rem;
+  list-style: none;
+  gap: 2rem;
 }
 
-.navbar nav ul li a {
-  color: #f0f0f0;
+header nav ul li a {
+  color: #ffffff;
   font-weight: 500;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
   transition: 0.3s;
 }
 
-.navbar nav ul li a.active,
-.navbar nav ul li a:hover {
-  color: #00bcd4;
+header nav ul li a:hover,
+header nav ul li a.active {
+  background-color: #ffd700;
+  color: #0f111a;
 }
 
 /* Hero Section */
 .hero-section {
+  position: relative;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('campus-tower.jpeg');
   background-size: cover;
   background-position: center;
-  text-align: center;
-  padding: 2rem;
+  filter: brightness(0.4);
+  z-index: -1;
 }
 
-.hero-section h1 {
+.hero-content h1 {
   font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  color: #00bcd4;
+  color: #ffd700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
-.hero-section p {
-  font-size: 1.2rem;
+.hero-content p {
+  font-size: 1.3rem;
   margin-bottom: 2rem;
-}
-
-.button-group a {
-  padding: 0.8rem 1.8rem;
-  margin: 0.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn-primary {
-  background-color: #00bcd4;
-  color: #121212;
-}
-
-.btn-primary:hover {
-  background-color: #0097a7;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  border: 2px solid #00bcd4;
-  color: #00bcd4;
-}
-
-.btn-secondary:hover {
-  background-color: #00bcd4;
-  color: #121212;
-}
-
-/* Page Sections */
-.page-section {
-  padding: 3rem 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
-
-h1, h2 {
-  color: #00bcd4;
-  margin-bottom: 1rem;
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.card {
-  background-color: #1f1f1f;
-  padding: 1.5rem;
-  border-radius: 12px;
-  flex: 1 1 45%;
-  min-width: 280px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  color: #ffffff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
 /* Buttons */
-.btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  border-radius: 8px;
-  background-color: #00bcd4;
-  color: #121212;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #0097a7;
-}
-
-/* Login/Register */
-.login-section {
+.button-group {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 80vh;
+  gap: 1.5rem;
 }
 
-.login-card {
-  background-color: #1f1f1f;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.6);
-}
-
-.login-card h1 {
-  margin-bottom: 1rem;
-  color: #00bcd4;
-  text-align: center;
-}
-
-.login-card form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.login-card input, 
-.login-card select, 
-.login-card textarea {
-  padding: 0.8rem;
-  border-radius: 8px;
-  border: none;
-  background-color: #2a2a2a;
-  color: #f0f0f0;
-}
-
-.login-card button {
-  background-color: #00bcd4;
-  color: #121212;
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem 1.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  cursor: pointer;
-  padding: 0.8rem;
-  border-radius: 8px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.login-card button:hover {
-  background-color: #0097a7;
+.btn-primary {
+  background: #ffd700;
+  color: #0f111a;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: #1f1f1f;
-  color: #888;
+.btn-primary:hover {
+  background: #e6c200;
+  transform: scale(1.05);
 }
 
-/* Skill Sharing Cards */
-textarea {
-  background-color: #2a2a2a;
-  border-radius: 8px;
-  border: none;
-  color: #f0f0f0;
-  padding: 0.8rem;
-  width: 100%;
+.btn-secondary {
+  background: transparent;
+  color: #ffd700;
+  border: 2px solid #ffd700;
+}
+
+.btn-secondary:hover {
+  background: #ffd700;
+  color: #0f111a;
+  transform: scale(1.05);
 }
