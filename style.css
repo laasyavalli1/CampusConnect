@@ -1,160 +1,268 @@
-/* Reset */
+/* General Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Body and global */
+/* Body & Background */
 body {
-  background-color: #0f111a;
-  color: #ffffff;
-  line-height: 1.6;
+    background-color: #0a0a0a;
+    color: #f0f0f0;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
+/* Links */
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: #f5c518;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
 }
 
 /* Header */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 3rem;
-  background: rgba(0, 0, 0, 0.7);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: rgba(0,0,0,0.85);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 header .logo {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: #ffd700; /* NIT Trichy vibe golden */
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f5c518;
 }
 
 header nav ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
+    display: flex;
+    list-style: none;
+    gap: 25px;
 }
 
 header nav ul li a {
-  color: #ffffff;
-  font-weight: 500;
-  padding: 0.3rem 0.5rem;
-  border-radius: 5px;
-  transition: 0.3s;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
-header nav ul li a:hover,
-header nav ul li a.active {
-  background-color: #ffd700;
-  color: #0f111a;
+header nav ul li a.active, header nav ul li a:hover {
+    background-color: #f5c518;
+    color: #000;
 }
 
 /* Hero Section */
 .hero-section {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('campus-tower.jpeg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
-/* Hero Background - fully visible tower on all screens */
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: auto;            /* width adjusts automatically */
-  height: 100%;           /* full height of hero section */
-  max-width: 100%;        /* prevents overflow */
-  background-image: url('campus-tower.jpeg');
-  background-size: contain;       /* full image fits */
-  background-position: top center; /* clock tower always visible */
-  background-repeat: no-repeat;   /* no tiling */
-  filter: brightness(0.4);
-  transform: translateX(-50%);    /* horizontally center the image */
-  z-index: -1;
-}
-
-/* Hero Content */
 .hero-content h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #ffd700;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    font-size: 3rem;
+    color: #f5c518;
+    text-shadow: 2px 2px 10px #000;
+    margin-bottom: 20px;
 }
 
 .hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  color: #ffffff;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
-/* Buttons */
 .button-group {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.btn-primary,
-.btn-secondary {
-  padding: 0.8rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+.btn-primary, .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
 .btn-primary {
-  background: #ffd700;
-  color: #0f111a;
+    background: #f5c518;
+    color: #000;
 }
 
 .btn-primary:hover {
-  background: #e6c200;
-  transform: scale(1.05);
+    background: #ffd633;
 }
 
-.btn-secondary {
-  background: transparent;
-  color: #ffd700;
-  border: 2px solid #ffd700;
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid #f5c518;
+    color: #f5c518;
 }
 
-.btn-secondary:hover {
-  background: #ffd700;
-  color: #0f111a;
-  transform: scale(1.05);
+.cta-button.secondary:hover {
+    background: #f5c518;
+    color: #000;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
+/* Page Sections */
+.page-section {
+    padding: 80px 50px;
+    max-width: 1000px;
+    margin: auto;
+}
 
-  .hero-content p {
+.page-section h1 {
+    font-size: 2.5rem;
+    color: #f5c518;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.page-section h2 {
+    font-size: 1.8rem;
+    color: #ffd633;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.page-section p, .page-section li {
     font-size: 1rem;
-  }
+    margin-bottom: 10px;
+    line-height: 1.5;
 }
 
-/* Extra-wide screen tweak */
-@media (min-width: 1600px) {
-  .hero-background {
-    max-width: 1600px;  /* ensures image doesn’t stretch too much */
-    background-size: contain;
-  }
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Login & Register Cards */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: rgba(10,10,10,0.9);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #f5c518;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card h1 {
+    margin-bottom: 15px;
+    color: #f5c518;
+}
+
+.login-card p {
+    margin-bottom: 20px;
+}
+
+.login-card input, .login-card select, .login-card textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.login-card input:focus, .login-card select:focus, .login-card textarea:focus {
+    box-shadow: 0 0 5px #f5c518;
+}
+
+/* Form Buttons */
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #f5c518;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-card button:hover {
+    background: #ffd633;
+}
+
+/* Create Account Link */
+.create-account-link a {
+    color: #f5c518;
+}
+
+.create-account-link a:hover {
+    color: #ffd633;
+}
+
+/* Skill Sharing Cards */
+.card {
+    background-color: rgba(10,10,10,0.85);
+    border-left: 4px solid #f5c518;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #f5c51840;
+}
+
+.card h3 {
+    color: #f5c518;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.85);
+    margin-top: 40px;
+    color: #f5c518;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .page-section {
+        padding: 50px 20px;
+    }
 }
