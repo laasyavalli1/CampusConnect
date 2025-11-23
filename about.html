@@ -1,31 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>About — CampusConnect</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - CampusConnect</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand"><img src="assets/images/logo-placeholder.png" class="logo"/><div><h1 class="brand-title">CampusConnect</h1></div></div>
-    <nav class="nav">
-      <a href="index.html" class="nav-link">home</a>
-      <a href="Skill-sharing.html" class="nav-link">skill sharing</a>
-      <a href="features.html" class="nav-link">buildings</a>
-      <a href="about.html" class="nav-link active">about</a>
+  <header class="navbar">
+    <a href="index.html" class="logo">CampusConnect</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="features.html">Features</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="main">
-    <section class="section">
-      <h3>About CampusConnect</h3>
-      <p class="muted">Created by: Laasya, Saravana Kumar, Pradeeshwaran.</p>
-      <p>Goals: Skill exchange, campus navigation, community building. Aligns with SDG 4 (Quality Education) and SDG 11 (Sustainable Cities & Communities).</p>
-    </section>
-  </main>
+  <main class="page-section">
+    <div class="container">
+      <h1>About CampusConnect</h1>
+      <p>
+        CampusConnect is a student-centered platform built to make life at NIT Trichy more collaborative 
+        and connected. It combines two major modules:
+      </p>
 
-  <footer class="site-footer"><div class="footer-inner">© <span id="year8"></span> CampusConnect</div></footer>
-  <script>document.getElementById('year8').textContent=new Date().getFullYear();</script>
+      <div class="cards">
+        <div class="card">
+          <h2>Skill Sharing</h2>
+          <p>
+            A space where students can create or join groups based on skills, interests, or academic branches. 
+            The platform encourages peer-to-peer learning, mentorship, and resource sharing.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Campus Navigation</h2>
+          <p>
+            Find your way around campus with ease. The interactive map helps locate departments, hostels, classrooms, 
+            and other facilities. It supports shortest path search and highlights nearby services.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
