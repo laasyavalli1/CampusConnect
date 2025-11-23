@@ -1,80 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CampusConnect — NIT Trichy</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- SITE HEADER / NAVBAR -->
-  <header class="site-header">
-    <div class="brand">
-      <img src="assets/images/logo-placeholder.png" alt="CampusConnect logo" class="logo"/>
-      <div>
-        <h1 class="brand-title">CampusConnect</h1>
-        <div class="brand-sub">Skill Sharing & Smart Navigation — NIT Trichy</div>
-      </div>
-    </div>
-
-    <nav class="nav">
-      <a class="nav-link" href="index.html">home</a>
-      <a class="nav-link" href="Skill-sharing.html">skill sharing</a>
-      <a class="nav-link" href="features.html">buildings</a>
-      <a class="nav-link" href="indoor.html">indoor</a>
-      <a class="nav-link" href="navigation.html">navigation</a>
-      <a class="nav-link" href="about.html">about</a>
-      <a class="nav-link auth" href="login.html">login</a>
-      <a class="nav-link auth" href="register.html">register</a>
+  <header class="navbar">
+    <a href="index.html" class="logo">CampusConnect</a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero hero-full">
-    <div class="hero-inner">
-      <h2>CampusConnect</h2>
-      <p class="lead">A polished portal for skill sharing and navigating NIT Trichy — designed for campus use and presentation.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="features.html">explore buildings</a>
-        <a class="btn btn-outline" href="skillshare.html">skill sharing</a>
+  <main class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Interactive Map of NIT Trichy</h1>
+      <p>Find departments, hostels, and key locations with ease.</p>
+
+      <div class="button-group">
+        <a href="navigation.html" class="btn-primary">Explore The Map</a>
+        <a href="login.html" class="btn-secondary">Skill Sharing Platform</a>
       </div>
     </div>
-  </section>
-
-  <!-- MAIN -->
-  <main class="main">
-    <section class="section">
-      <div class="section-head">
-        <h3>Featured Buildings</h3>
-        <p class="muted">Cards are auto-populated from <code>assets/js/buildings.js</code>. Add images to <code>assets/images/buildings/</code>.</p>
-      </div>
-
-      <div id="cards-grid" class="cards-grid"></div>
-    </section>
-
-    <section class="section">
-      <h3>About this Project</h3>
-      <p>CampusConnect brings together an interactive campus map and skill-sharing communities — built by NIT Trichy students.</p>
-    </section>
   </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>© <span id="year"></span> CampusConnect · NIT Trichy</div>
-    </div>
-  </footer>
-
-  <!-- MODAL (detail) -->
-  <div id="modal" class="modal hidden" aria-hidden="true">
-    <div class="modal-backdrop"></div>
-    <div class="modal-window">
-      <button id="modal-close" class="modal-close" aria-label="close">✕</button>
-      <div id="modal-content"></div>
-    </div>
-  </div>
-
-  <script src="buildings.js"></script>
-  <script src="main.js"></script>
 </body>
 </html>
