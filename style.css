@@ -134,3 +134,51 @@ header nav ul li a.active {
   color: #0f111a;
   transform: scale(1.05);
 }
+/* Page Sections */
+.page-section {
+  padding: 5rem 3rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-container h1,
+.page-section h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  color: #ffd700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cards .card {
+  background: rgba(255, 215, 0, 0.1);
+  border-left: 4px solid #ffd700;
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 350px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.cards .card:hover {
+  background: rgba(255, 215, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.cards .card h2 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.cards .card p {
+  color: #ffffff;
+  line-height: 1.5;
+}
+
