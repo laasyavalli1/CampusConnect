@@ -1,4 +1,4 @@
-/* Reset & basic styling */
+/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,115 +7,209 @@
 }
 
 body {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #121212;
+  color: #f0f0f0;
 }
 
-/* Navbar/Header */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
 .navbar {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  background-color: rgba(0,0,0,0.7);
-  position: fixed;
+  background-color: #1f1f1f;
+  padding: 1rem 2rem;
+  position: sticky;
   top: 0;
-  left: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
 .navbar .logo {
-  color: #fff;
-  font-size: 24px;
   font-weight: 700;
-  text-decoration: none;
+  font-size: 1.5rem;
+  color: #00bcd4;
 }
 
-.navbar ul {
+.navbar nav ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 1.5rem;
 }
 
-.navbar ul li a {
-  color: #fff;
-  text-decoration: none;
+.navbar nav ul li a {
+  color: #f0f0f0;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: 0.3s;
 }
 
-.navbar ul li a:hover,
-.navbar ul li a.active {
-  color: #0077ff;
+.navbar nav ul li a.active,
+.navbar nav ul li a:hover {
+  color: #00bcd4;
 }
 
 /* Hero Section */
 .hero-section {
-  position: relative;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
   text-align: center;
-  color: #fff;
+  padding: 2rem;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #00bcd4;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 20px;
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-.hero-content h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.hero-content p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-/* Buttons */
 .button-group a {
-  display: inline-block;
-  padding: 12px 28px;
-  margin: 10px;
-  border-radius: 30px;
+  padding: 0.8rem 1.8rem;
+  margin: 0.5rem;
+  border-radius: 8px;
   font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn-primary {
-  background: #0077ff;
-  color: #fff;
+  background-color: #00bcd4;
+  color: #121212;
 }
 
 .btn-primary:hover {
-  background: #005ecb;
+  background-color: #0097a7;
 }
 
 .btn-secondary {
-  background: #fff;
-  color: #0077ff;
-  border: 2px solid #0077ff;
+  background-color: transparent;
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
 }
 
 .btn-secondary:hover {
-  background: #0077ff;
-  color: #fff;
+  background-color: #00bcd4;
+  color: #121212;
+}
+
+/* Page Sections */
+.page-section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1, h2 {
+  color: #00bcd4;
+  margin-bottom: 1rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  background-color: #1f1f1f;
+  padding: 1.5rem;
+  border-radius: 12px;
+  flex: 1 1 45%;
+  min-width: 280px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  background-color: #00bcd4;
+  color: #121212;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #0097a7;
+}
+
+/* Login/Register */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.login-card {
+  background-color: #1f1f1f;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.login-card h1 {
+  margin-bottom: 1rem;
+  color: #00bcd4;
+  text-align: center;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-card input, 
+.login-card select, 
+.login-card textarea {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+.login-card button {
+  background-color: #00bcd4;
+  color: #121212;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+.login-card button:hover {
+  background-color: #0097a7;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #1f1f1f;
+  color: #888;
+}
+
+/* Skill Sharing Cards */
+textarea {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  border: none;
+  color: #f0f0f0;
+  padding: 0.8rem;
+  width: 100%;
 }
