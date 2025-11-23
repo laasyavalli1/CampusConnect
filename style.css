@@ -55,24 +55,29 @@ header nav ul li a {
     border-radius: 5px;
 }
 
-header nav ul li a.active, header nav ul li a:hover {
+header nav ul li a.active,
+header nav ul li a:hover {
     background-color: #f5c518;
     color: #000;
 }
 
-/* Hero Section */
+/* Hero Section - Fully Responsive */
 .hero-section {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('campus-tower.jpeg');
-    background-size: cover;
-    background-position: center;
     text-align: center;
     padding: 0 20px;
+
+    /* Background settings */
+    background-image: url('campus-tower.jpeg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
 }
 
+/* Hero Content */
 .hero-content h1 {
     font-size: 3rem;
     color: #f5c518;
@@ -85,6 +90,7 @@ header nav ul li a.active, header nav ul li a:hover {
     margin-bottom: 30px;
 }
 
+/* Button group inside hero */
 .button-group {
     display: flex;
     justify-content: center;
@@ -183,7 +189,9 @@ ul {
     margin-bottom: 20px;
 }
 
-.login-card input, .login-card select, .login-card textarea {
+.login-card input, 
+.login-card select, 
+.login-card textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
@@ -193,7 +201,9 @@ ul {
     font-size: 1rem;
 }
 
-.login-card input:focus, .login-card select:focus, .login-card textarea:focus {
+.login-card input:focus, 
+.login-card select:focus, 
+.login-card textarea:focus {
     box-shadow: 0 0 5px #f5c518;
 }
 
@@ -252,7 +262,7 @@ footer {
 }
 
 /* Responsive */
-@media(max-width: 768px) {
+@media(max-width: 1024px) {
     header {
         flex-direction: column;
         gap: 15px;
@@ -264,5 +274,25 @@ footer {
 
     .page-section {
         padding: 50px 20px;
+    }
+
+    /* Hero adjustments for tablets and phones */
+    .hero-section {
+        background-position: center center; /* center image for small screens */
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1440px) {
+    .hero-section {
+        background-image: url('campus-tower-wide.jpeg'); /* optional wider crop */
     }
 }
