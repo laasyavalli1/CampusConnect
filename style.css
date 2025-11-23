@@ -181,4 +181,15 @@ header nav ul li a.active {
   color: #ffffff;
   line-height: 1.5;
 }
+/* Features Cards */
+.cards .card ul {
+  list-style-type: disc;
+  margin-left: 1.2rem;
+  color: #ffffff;
+}
+
+.cards .card ul li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
 
