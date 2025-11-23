@@ -1,67 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusConnect</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map - NIT Trichy</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header>
+    <a href="index.html" class="logo">CampusConnect</a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">CampusConnect</div>
-        <nav>
-            <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <main class="hero-section">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1>Interactive Map of NIT Trichy</h1>
+      <p>Find departments, hostels, and key locations with ease.</p>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
-        <div class="hero-content">
-            <h1>Welcome to CampusConnect</h1>
-            <p>Connect, Learn, and Explore your Campus like never before.</p>
-            <div class="button-group">
-                <a href="#skills" class="btn-primary">Explore Skills</a>
-                <a href="#contact" class="cta-button secondary">Get in Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="page-section" id="about">
-        <h1>About CampusConnect</h1>
-        <p>CampusConnect is a platform designed to help students share skills, resources, and navigate the campus efficiently. Join groups, chat with peers, and discover campus facilities easily.</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="page-section" id="skills">
-        <h1>Skill Sharing</h1>
-        <div class="card">
-            <h3>Programming</h3>
-            <p>Join programming groups and share your knowledge.</p>
-        </div>
-        <div class="card">
-            <h3>Design</h3>
-            <p>Learn design skills from fellow students and mentors.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="page-section" id="contact">
-        <h1>Contact Us</h1>
-        <p>Have questions? Reach out to the CampusConnect team.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        &copy; 2025 CampusConnect. All rights reserved.
-    </footer>
+      <div class="button-group">
+        <a href="navigation.html" class="btn-primary" id="explore-map-btn">Explore The Map</a>
+        <a href="login.html" class="btn-secondary">Skill Sharing Platform</a>
+      </div>
+    </div>
+  </main>
 
 </body>
 </html>
