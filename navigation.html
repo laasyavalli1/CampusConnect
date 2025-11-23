@@ -1,26 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campus Navigation | CampusConnect</title>
-  <link rel="stylesheet" href="navigation.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Navigation — CampusConnect</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
-  <header>
-    <h1>Campus Navigation</h1>
-    <p>Explore and find your way around the NIT Trichy campus</p>
-  </header>
+  <header class="site-header">
+    <div class="brand"><img src="assets/images/logo-placeholder.png" class="logo"/><div><h1 class="brand-title">CampusConnect</h1></div></div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">home</a>
+      <a href="features.html" class="nav-link">buildings</a>
+      <a href="navigation.html" class="nav-link active">navigation</a>
+      <a href="map.html" class="nav-link">map</a>
+    </nav>
+  </header>
 
-  <main>
-    <div class="buttons">
-      <a href="indoor.html" class="btn">Inside Campus</a>
-      <a href="outdoor.html" class="btn">Outside Campus</a>
-    </div>
+  <main class="main">
+    <section class="section">
+      <h3>Navigation</h3>
+      <p class="muted">Interactive map & shortest-path features will integrate here later. For now a consistent UI is ready.</p>
+    </section>
+  </main>
 
-    <div class="back-home">
-      <a href="index.html" class="btn back">⬅ Back to Home</a>
-    </div>
-  </main>
+  <footer class="site-footer"><div class="footer-inner">© <span id="year6"></span> CampusConnect</div></footer>
+  <script>document.getElementById('year6').textContent = new Date().getFullYear();</script>
 </body>
 </html>
