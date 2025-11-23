@@ -1,37 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Sharing Login</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login — CampusConnect</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo">CampusConnect</a>
-    </header>
+  <header class="site-header small">
+    <div class="brand">
+      <img src="assets/images/logo-placeholder.png" class="logo" alt="logo"/>
+      <div><h1 class="brand-title">CampusConnect</h1></div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">home</a>
+      <a href="skillshare.html" class="nav-link">skill sharing</a>
+      <a href="register.html" class="nav-link">create account</a>
+    </nav>
+  </header>
 
-    <main class="login-section">
-        <div class="login-card">
-            <h1>Login to Skill Sharing</h1>
-            <p>Use your NITT Webmail credentials</p>
-            <form action="skillsharing.html" method="GET">
-                <label for="email">NITT Webmail:</label>
-                <input type="email" id="email" name="email" placeholder="example@nitt.edu" required>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Enter password" required>
-
-                <button type="submit">Login</button>
-            </form>
-            
-            <p class="create-account-link">
-                Don't have an account? <a href="register.html">Create an Account</a>
-            </p>
+  <main class="auth-page">
+    <section class="auth-card">
+      <h3>login</h3>
+      <form id="loginForm" class="form">
+        <label>email
+          <input type="email" name="email" required />
+        </label>
+        <label>password
+          <input type="password" name="password" required />
+        </label>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">login</button>
+          <a class="btn btn-outline" href="register.html">create account</a>
         </div>
-    </main>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner">© <span id="year3"></span> CampusConnect</div></footer>
+
+  <script>
+    document.getElementById('year3').textContent = new Date().getFullYear();
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Frontend login placeholder — integrate your backend later.');
+    });
+  </script>
 </body>
 </html>
