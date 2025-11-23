@@ -1,30 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Indoor Facilities — CampusConnect</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inside Campus | CampusConnect</title>
+  <link rel="stylesheet" href="navigation.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand"><img src="assets/images/logo-placeholder.png" class="logo"/><div><h1 class="brand-title">CampusConnect</h1></div></div>
-    <nav class="nav">
-      <a href="index.html" class="nav-link">home</a>
-      <a href="features.html" class="nav-link">buildings</a>
-      <a href="indoor.html" class="nav-link active">indoor</a>
-      <a href="navigation.html" class="nav-link">navigation</a>
-    </nav>
+  <header>
+    <h1>Inside Campus</h1>
+    <p>Click any building to view photos and details</p>
   </header>
 
-  <main class="main">
-    <section class="section">
-      <h3>Indoor Facilities</h3>
-      <p class="muted">List of indoor facilities (labs, lecture halls, libraries) — content from your existing pages can be moved here.</p>
-    </section>
+  <main>
+    <div class="map-wrapper">
+      <div id="map" style="background-image: url('campus-map.jpg');"></div>
+      <small class="hint">Click a hotspot to view details</small>
+    </div>
+
+    <div class="back-home">
+      <a href="navigation.html" class="btn back">⬅ Back to Navigation</a>
+    </div>
+
+    <div id="hotspotModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">✕</button>
+        <h2 id="modalTitle">Building</h2>
+        <div class="photos">
+          <img id="photo1" class="photo" src="" alt="photo1">
+          <img id="photo2" class="photo" src="" alt="photo2">
+        </div>
+        <p id="modalDetails"></p>
+      </div>
+    </div>
   </main>
 
-  <footer class="site-footer"><div class="footer-inner">© <span id="year5"></span> CampusConnect</div></footer>
-  <script>document.getElementById('year5').textContent = new Date().getFullYear();</script>
+  <script src="navigation.js?v=4"></script>
 </body>
 </html>
