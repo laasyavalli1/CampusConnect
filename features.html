@@ -1,41 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Features - CampusConnect</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Buildings — CampusConnect</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">CampusConnect</a>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html" class="active">Features</a></li>
-      </ul>
+  <header class="site-header">
+    <div class="brand"><img src="assets/images/logo-placeholder.png" class="logo"/><div><h1 class="brand-title">CampusConnect</h1></div></div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">home</a>
+      <a href="skillshare.html" class="nav-link">skill sharing</a>
+      <a href="features.html" class="nav-link active">buildings</a>
+      <a href="navigation.html" class="nav-link">navigation</a>
     </nav>
   </header>
 
-  <main class="page-section">
-    <h1>Features</h1>
-    
-    <h2>Skill Sharing Module</h2>
-    <ul>
-      <li>Branch/topic-based chat groups for discussions.</li>
-      <li>Resource sharing (notes, references, tutorials).</li>
-      <li>Mentorship system for juniors to connect with seniors.</li>
-      <li>User profiles to showcase interests and expertise.</li>
-    </ul>
-
-    <h2>Campus Navigation Module</h2>
-    <ul>
-      <li>Interactive map with zoom and search functionality.</li>
-      <li>Shortest path finding between two campus locations.</li>
-      <li>Category-based search (hostels, departments, canteens).</li>
-      <li>Nearby facilities listing (ATM, medical center, etc.).</li>
-    </ul>
+  <main class="main">
+    <section class="section">
+      <h3>All Buildings</h3>
+      <div id="cards-grid-2" class="cards-grid"></div>
+    </section>
   </main>
+
+  <footer class="site-footer"><div class="footer-inner">© <span id="year7"></span> CampusConnect</div></footer>
+
+  <script src="assets/js/buildings.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('year7').textContent=new Date().getFullYear();</script>
 </body>
 </html>
